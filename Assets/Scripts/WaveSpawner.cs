@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Buna siua coae
 public class WaveSpawner : MonoBehaviour
 {
     [Header("Setup")] //atribute legate setup
