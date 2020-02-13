@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public float range;
 
     private float moveInputX;
     private float moveInputY;
