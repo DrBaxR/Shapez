@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         moveInputY = Input.GetAxisRaw("Vertical");
         movementDirection = new Vector2(moveInputX , moveInputY);
         movementDirection.Normalize();
-        rb.velocity = movementDirection * speed;
+        rb.velocity = movementDirection * speed ;
        // Debug.Log(rb.velocity.magnitude);
 
        /* if (Input.GetKey(KeyCode.D))
