@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class Enemies : MonoBehaviour
 {
-
+    
     public int health;
     public int damage;
     public float timeUntillIncrease;
     
+    public float speed;
+
+    private float time=0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +28,26 @@ public abstract class Enemies : MonoBehaviour
 
     public void IncreaseAttributes(int damage)
     {
-        if (Time.time >= timeUntillIncrease)
+        time += Time.unscaledDeltaTime;
+        if (time>= timeUntillIncrease)
         {
-            timeUntillIncrease += 300f;
+            time = 0f;
             this.damage += damage;
         }
     }
     public void IncreaseAttributes(int damage,int health)
     {
-        if (Time.time >= timeUntillIncrease)
+        time += Time.unscaledDeltaTime;
+        if (time >= timeUntillIncrease)
         {
+            time = 0f;
             this.damage += damage;
             this.health += health;
         }
+    }
+
+    public int DealDamage(int hpOfAttackedTarget)
+    {
+        return hpOfAttackedTarget - this.damage;
     }
 }

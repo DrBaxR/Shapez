@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float range;
+    public int damage;
+    public int health;
 
     private float moveInputX;
     private float moveInputY;
@@ -46,5 +48,10 @@ public class Player : MonoBehaviour
         }*/
 
         //rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), Mathf.Clamp(rb.velocity.y, -speed, speed));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        this.health -= damage;
     }
 }

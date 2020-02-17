@@ -18,13 +18,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float time = Time.time - startTime;
-        string minutes = ((int)time / 60).ToString();
-        string seconds = ((int)time % 60).ToString("f0");
-        counter.text = minutes + ":" + seconds;
+        UpdateUI();
         if (Time.time > 60f)
         {
             randomWaveSpawner.SetActive(true);
         }
     }
+
+    private void UpdateUI()
+    {
+        float time = Time.time - startTime;
+        string minutes = ((int)time / 60).ToString();
+        string seconds = ((int)time % 60).ToString("f0");
+        counter.text = minutes + ":" + seconds;
+    }
+
+
 }
