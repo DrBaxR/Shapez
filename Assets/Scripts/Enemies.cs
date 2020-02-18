@@ -13,19 +13,6 @@ public abstract class Enemies : MonoBehaviour
 
     private float time=0f;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void IncreaseAttributes(int damage)
     {
         time += Time.unscaledDeltaTime;
