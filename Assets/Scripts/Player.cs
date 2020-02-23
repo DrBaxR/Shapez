@@ -14,11 +14,24 @@ public class Player : MonoBehaviour
 
     private Vector2 movementDirection;
     private Rigidbody2D rb;
+    private Renderer sr;
+    
 
     void Start()
     {
         //the comment that i added
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<Renderer>();
+    }
+
+    private void Update()
+    {
+        Color c = sr.material.color;
+        c.a = 0.5f;
+        sr.material.color = c;
+      /*  c.a = 1f;
+        sr.material.color = c;*/
+
     }
 
     private void FixedUpdate()
