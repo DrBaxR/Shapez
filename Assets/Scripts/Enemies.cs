@@ -37,4 +37,15 @@ public abstract class Enemies : MonoBehaviour
     {
         return hpOfAttackedTarget - this.damage;
     }
+
+    public void TakeDamage(int damage)
+    {
+        this.health -= damage;
+    }
+
+    protected void CheckForDeath()
+    {
+        if (health <= 0)
+            Destroy(gameObject);
+    }
 }

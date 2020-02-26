@@ -39,4 +39,18 @@ public class DodgeEnemy : Enemies
 
         transform.Translate(dir * dodgeSpeed, Space.Self);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("CircleProjectile"))
+        {
+            this.TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().damage);
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("Player")) 
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
+        }
+    }
 }

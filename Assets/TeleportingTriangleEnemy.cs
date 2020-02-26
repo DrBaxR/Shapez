@@ -97,4 +97,18 @@ public class TeleportingTriangleEnemy : Enemies
         }
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("TriangleProjectile"))
+        {
+            this.TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().damage);
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
+        }
+    }
 }

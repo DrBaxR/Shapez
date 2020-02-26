@@ -35,15 +35,8 @@ public class FollowingEnemy : Enemies
         }
     }
 
-    private void CheckForDeath()
-    {
-        if (health <= 0)
-            Destroy(gameObject);
-    }
     
-    public void TakeDamage(int damage)
-    {
-        this.health -= damage;
-    }
+    
+    
     
 }
