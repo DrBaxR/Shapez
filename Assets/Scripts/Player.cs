@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
 #if UNITY_EDITOR
         Debug.Log("Editor");
-        pcMovement = false;
+        pcMovement = true;
 #elif UNITY_STANDALONE_WIN
         Debug.Log("Windows");
         pcMovement = true;
@@ -46,8 +46,9 @@ public class Player : MonoBehaviour
         c.a = 0.5f;
         sr.material.color = c;
         Debug.Log(rb.velocity.magnitude);
-      /*  c.a = 1f;
-        sr.material.color = c;*/
+        /*  c.a = 1f;
+          sr.material.color = c;*/
+
 
     }
 

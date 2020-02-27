@@ -30,7 +30,11 @@ public class Shooting : MonoBehaviour
         {
             Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
             direction = direction.normalized;
-            GameObject bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity) as GameObject;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            GameObject bullet = Instantiate(bulletPrefab, this.transform.position, rotation) as GameObject;
             //myAudio.PlayAudio("laserAttack");
             Projectile proj = bullet.GetComponent<Projectile>();
             proj.SetDirection(direction);

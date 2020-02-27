@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: -7017310970407115617}
   - component: {fileID: 6797459796117307090}
   - component: {fileID: 5142226168072177321}
-  - component: {fileID: -1500781304851076876}
   m_Layer: 0
-  m_Name: Projectile
-  m_TagString: SquareProjectile
+  m_Name: ProjectileCircle
+  m_TagString: CircleProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,15 +143,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1500781304851076876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499671392343195361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3278ae9b0a93d214180a2e466a867166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
