@@ -54,7 +54,7 @@ public class MultiplyingEnemy : Enemies
         dir = dir.normalized;
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject;
         Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(dir*30f);
+        rb.AddForce(dir*);
         yield return null;
     }
 
