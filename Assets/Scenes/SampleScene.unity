@@ -779,6 +779,12 @@ MonoBehaviour:
   range: 8
   damage: 1
   health: 10
+  inventory:
+  - {fileID: 11400000, guid: a00e8b4a96ed0274394a0026b82b83a7, type: 2}
+  - {fileID: 11400000, guid: 3dd05b011fdb57a4eb33e95ca6125c65, type: 2}
+  - {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
+  - {fileID: 11400000, guid: b0b040b6a497c5247a40cfd5612028aa, type: 2}
+  currentWeapon: {fileID: 0}
 --- !u!212 &924289503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -855,7 +861,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924289500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22c00f9e983e17b44b89718d4edcd32e, type: 3}
   m_Name: 
@@ -1002,7 +1008,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ccd738a46ab86634098fce3a9ec54258, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1153,6 +1159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Multiplying Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915160643491604280, guid: e1d128ed44043bf47b92f9939a88a86c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4378231437288882012, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}

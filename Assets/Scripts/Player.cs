@@ -18,26 +18,29 @@ public class Player : MonoBehaviour
 
     private bool pcMovement;
     private bool otherMovement;
-    
+
+    //legate de inventar
+    [SerializeField] private List<Weapon> inventory;
+    private float nextShot = 0.0f;
+
+    private Weapon currentWeapon;
+
 
     void Start()
     {
-
-
-#if UNITY_EDITOR
-        Debug.Log("Editor");
-        pcMovement = true;
-#elif UNITY_STANDALONE_WIN
-        Debug.Log("Windows");
-        pcMovement = true;
+        #if UNITY_EDITOR
+                Debug.Log("Editor");
+                pcMovement = true;
+        #elif UNITY_STANDALONE_WIN
+                Debug.Log("Windows");
+                pcMovement = true;
         
-#endif
+        #endif
 
-
-        //the comment that i added
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<Renderer>();
 
+        currentWeapon = inventory[0];
     }
 
     private void Update()
@@ -49,7 +52,8 @@ public class Player : MonoBehaviour
         /*  c.a = 1f;
           sr.material.color = c;*/
 
-
+        Shoot();
+        ChangeWeapon();
     }
 
     private void FixedUpdate()
@@ -93,5 +97,26 @@ public class Player : MonoBehaviour
     private void MoveOnPcAndEditor()
     {
         
+    }
+
+    private void ChangeWeapon()
+    {
+        foreach (char c in Input.inputString)
+        {
+            int index = c - '0' - 1;
+            if (index >= 0 && index < inventory.Count)
+            {
+                currentWeapon = inventory[index];
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextShot)
+        {
+            nextShot += currentWeapon.cooldown;
+            currentWeapon.Shoot(transform);
+        }
     }
 }
