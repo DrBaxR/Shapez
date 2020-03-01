@@ -6,7 +6,7 @@ public class ShootingEnemy : Enemies
 {
     public float followDistance;
     public float retreatDistance;
-    public float speed;
+    
     public float shootCooldown;
     public ProjectileContainer pc;
 
@@ -97,7 +97,7 @@ public class ShootingEnemy : Enemies
         else if (gameObject.CompareTag("CircleEnemy"))
         {
             projectile = pc.projectiles[0];
-            nOfCorners = 1000;
+            nOfCorners = 10;
         }
     }
 }

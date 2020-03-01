@@ -583,7 +583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &668611739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +967,6 @@ MonoBehaviour:
   speed: 5
   followDistance: 7
   retreatDistance: 5
-  speed: 5
   shootCooldown: 3
   pc: {fileID: 11400000, guid: f7c3ff7625ab50f4fa929b033a183cde, type: 2}
 --- !u!4 &1675886621
@@ -1231,7 +1230,7 @@ PrefabInstance:
     - target: {fileID: 4051659539918123100, guid: 39d7bed89cb83e541b59a9f31ea52453,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4051659539918123099, guid: 39d7bed89cb83e541b59a9f31ea52453,
         type: 3}
@@ -1474,7 +1473,7 @@ PrefabInstance:
     - target: {fileID: 8841141219699188049, guid: 440bfaa078f94e04da6d060995c8fdca,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8841141219699188050, guid: 440bfaa078f94e04da6d060995c8fdca,
         type: 3}
