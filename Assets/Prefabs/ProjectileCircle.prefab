@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7017310970407115617}
   - component: {fileID: 6797459796117307090}
   - component: {fileID: 5142226168072177321}
+  - component: {fileID: 864432923117084041}
   m_Layer: 0
   m_Name: ProjectileCircle
   m_TagString: CircleProjectile
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 321e7e17bca5b7b46947e84bfbe664d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 687109022b580f54b857cb66a55eb509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,3 +144,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &864432923117084041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499671392343195361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae84ed30289475479a8316f7dbe5af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  lifeTime: 5

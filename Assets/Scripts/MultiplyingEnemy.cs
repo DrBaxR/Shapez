@@ -8,7 +8,7 @@ public class MultiplyingEnemy : Enemies
 
     public List<Transform> spawnPoints;
     public float timeBtwSpawns;
-    public GameObject enemy;
+    public GameObject enemyPrefab;
     public int numberOfClonedTimes;
   
 
@@ -50,7 +50,11 @@ public class MultiplyingEnemy : Enemies
 
     private IEnumerator Spawn(int randomPoint1)
     {
-        Instantiate(enemy, spawnPoints[randomPoint1].position, Quaternion.identity);
+        Vector2 dir = spawnPoints[randomPoint1].position - transform.position;
+        dir = dir.normalized;
+        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject;
+        Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
+        rb.AddForce(dir*);
         yield return null;
     }
 
