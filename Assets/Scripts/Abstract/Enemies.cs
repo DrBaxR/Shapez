@@ -11,7 +11,14 @@ public abstract class Enemies : MonoBehaviour
     
     public float speed;
 
+   
+
+    
+
     private float time=0f;
+
+  
+        
 
     public void IncreaseAttributes(int damage)
     {
@@ -48,4 +55,7 @@ public abstract class Enemies : MonoBehaviour
         if (health <= 0)
             Destroy(gameObject);
     }
+
+   
+    
 }

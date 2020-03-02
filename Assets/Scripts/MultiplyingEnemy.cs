@@ -10,7 +10,9 @@ public class MultiplyingEnemy : Enemies
     public float timeBtwSpawns;
     public GameObject enemyPrefab;
     public int numberOfClonedTimes;
-  
+    public EnemySpriteContainer esc;
+    private SpriteRenderer sr;
+
 
 
     private Transform target;
@@ -21,7 +23,10 @@ public class MultiplyingEnemy : Enemies
     {
         startTimeBtwSpawns = timeBtwSpawns;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
+        Initialization();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -53,8 +58,9 @@ public class MultiplyingEnemy : Enemies
         Vector2 dir = spawnPoints[randomPoint1].position - transform.position;
         dir = dir.normalized;
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject;
+        enemy.gameObject.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
         Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(dir*);
+        rb.AddForce(dir*500f);
         yield return null;
     }
 
@@ -72,4 +78,26 @@ public class MultiplyingEnemy : Enemies
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
     }
+public void Initialization()
+
+{
+    int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
+    sr.sprite = esc.enemySprites[randomIndex];
+    if (randomIndex == 0)
+    {
+        gameObject.tag = "SquareEnemy";
+    }
+    else if (randomIndex == 1)
+    {
+        gameObject.tag = "CircleEnemy";
+    }
+    else if (randomIndex == 2)
+    {
+        gameObject.tag = "TriangleEnemy";
+    }
+    else if (randomIndex == 3)
+    {
+        gameObject.tag = "RhombEnemy";
+    }
+}
 }

@@ -8,12 +8,14 @@ public class TeleportingTriangleEnemy : Enemies
 
     public float explosionRadius;
     public Transform explosionCenter;
+    public EnemySpriteContainer esc;
 
     private float minRadius = 2;
     private float maxRadius = 3;
     private Transform player;
     private bool moving;
     private float nextTeleport;
+    private SpriteRenderer sr;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,8 @@ public class TeleportingTriangleEnemy : Enemies
         moving = true;
         nextTeleport = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
+        Initialization();
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class TeleportingTriangleEnemy : Enemies
     {
         Move();
         Teleport();
+
         
     }
 
@@ -111,4 +116,28 @@ public class TeleportingTriangleEnemy : Enemies
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
     }
+
+    public void Initialization()
+
+    {
+        int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
+        sr.sprite = esc.enemySprites[randomIndex];
+        if (randomIndex == 0)
+        {
+            gameObject.tag = "SquareEnemy";
+        }
+        else if (randomIndex == 1)
+        {
+            gameObject.tag = "CircleEnemy";
+        }
+        else if (randomIndex == 2)
+        {
+            gameObject.tag = "TriangleEnemy";
+        }
+        else if (randomIndex == 3)
+        {
+            gameObject.tag = "RhombEnemy";
+        }
+    }
+
 }

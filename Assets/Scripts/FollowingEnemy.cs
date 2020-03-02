@@ -6,12 +6,15 @@ public class FollowingEnemy : Enemies
 {
     private Transform target;
     private Player player;
-   
+    public EnemySpriteContainer esc;
+    private SpriteRenderer sr;
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        sr = GetComponent<SpriteRenderer>();
+        Initialization();
     }
 
     void Update()
@@ -35,8 +38,29 @@ public class FollowingEnemy : Enemies
         }
     }
 
-    
-    
-    
-    
+    public void Initialization()
+
+    {
+        int randomIndex = Random.Range(0, esc.enemySprites.Count);
+        sr.sprite = esc.enemySprites[randomIndex];
+        if (randomIndex == 0)
+        {
+            gameObject.tag = "SquareEnemy";
+        }
+        else if (randomIndex == 1)
+        {
+            gameObject.tag = "CircleEnemy";
+        }
+        else if (randomIndex == 2)
+        {
+            gameObject.tag = "TriangleEnemy";
+        }
+        else if (randomIndex == 3)
+        {
+            gameObject.tag = "RhombEnemy";
+        }
+    }
+
+
+
 }
