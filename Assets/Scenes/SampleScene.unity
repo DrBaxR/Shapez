@@ -784,7 +784,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3dd05b011fdb57a4eb33e95ca6125c65, type: 2}
   - {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
   - {fileID: 11400000, guid: b0b040b6a497c5247a40cfd5612028aa, type: 2}
-  currentWeapon: {fileID: 0}
 --- !u!212 &924289503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1162,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 6915160643491604280, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4378231437288882012, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}
@@ -1235,6 +1234,12 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9166611981483019326, guid: e1d128ed44043bf47b92f9939a88a86c,
+        type: 3}
+      propertyPath: esc
+      value: 
+      objectReference: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
 --- !u!1001 &4051659541285544887

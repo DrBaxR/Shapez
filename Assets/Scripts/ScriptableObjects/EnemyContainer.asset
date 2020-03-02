@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fd0e8ef79c0014384656a397641545, type: 3}
   m_Name: EnemyContainer
   m_EditorClassIdentifier: 
-  enemySprites: []
+  enemySprites:
+  - {fileID: 21300000, guid: 321e7e17bca5b7b46947e84bfbe664d9, type: 3}
+  - {fileID: 21300000, guid: 687109022b580f54b857cb66a55eb509, type: 3}
+  - {fileID: 21300000, guid: 1f96671825e756d4ebe9bb9f9c3c509e, type: 3}
+  - {fileID: 21300000, guid: b5a13ad0bf6600349930f913ba5b2f0d, type: 3}
