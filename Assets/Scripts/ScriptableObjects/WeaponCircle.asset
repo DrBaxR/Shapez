@@ -15,3 +15,4 @@ MonoBehaviour:
   cooldown: 0.1
   projectile: {fileID: 5499671392343195361, guid: cffa5c929f228db4790daccecc6b455e,
     type: 3}
+  sprite: {fileID: 21300000, guid: 687109022b580f54b857cb66a55eb509, type: 3}

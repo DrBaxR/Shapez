@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
         }
         Shooting daniel = GetComponent<Shooting>();
         daniel.daniel  = currentWeapon;
+        GetComponent<SpriteRenderer>().sprite = currentWeapon.sprite;
     }
 
     private void Shoot()

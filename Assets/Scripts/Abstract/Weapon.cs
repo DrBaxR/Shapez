@@ -7,6 +7,7 @@ public class Weapon : ScriptableObject
 {
     public float cooldown;
     public GameObject projectile;
+    public Sprite sprite;
 
     public void Shoot(Transform currentPos)
     {
