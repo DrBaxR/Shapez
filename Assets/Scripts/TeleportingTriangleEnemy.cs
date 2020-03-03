@@ -8,14 +8,14 @@ public class TeleportingTriangleEnemy : Enemies
 
     public float explosionRadius;
     public Transform explosionCenter;
-    public EnemySpriteContainer esc;
+  //  public EnemySpriteContainer esc;
 
     private float minRadius = 2;
     private float maxRadius = 3;
     private Transform player;
     private bool moving;
     private float nextTeleport;
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,8 @@ public class TeleportingTriangleEnemy : Enemies
         moving = true;
         nextTeleport = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        /* sr = GetComponent<SpriteRenderer>();
+         Initialization();*/
         sr = GetComponent<SpriteRenderer>();
         Initialization();
     }
@@ -117,7 +119,7 @@ public class TeleportingTriangleEnemy : Enemies
         }
     }
 
-    public void Initialization()
+    /*public void Initialization()
 
     {
         int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
@@ -138,6 +140,6 @@ public class TeleportingTriangleEnemy : Enemies
         {
             gameObject.tag = "RhombEnemy";
         }
-    }
+    }*/
 
 }

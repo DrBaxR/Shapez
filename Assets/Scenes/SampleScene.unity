@@ -860,7 +860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924289500}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22c00f9e983e17b44b89718d4edcd32e, type: 3}
   m_Name: 
@@ -868,6 +868,7 @@ MonoBehaviour:
   forceRatio: 300
   bulletPrefab: {fileID: 5499671392343195361, guid: c4c06272ad400484789dc002760f1c86,
     type: 3}
+  daniel: {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
 --- !u!61 &924289506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -953,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1675886620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +971,7 @@ MonoBehaviour:
   damage: 0
   timeUntillIncrease: 0
   speed: 5
+  esc: {fileID: 0}
   followDistance: 7
   retreatDistance: 5
   shootCooldown: 3

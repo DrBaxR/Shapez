@@ -11,14 +11,18 @@ public abstract class Enemies : MonoBehaviour
     
     public float speed;
 
-   
 
-    
+    protected SpriteRenderer sr;
+    public EnemySpriteContainer esc;
 
     private float time=0f;
 
-  
+
+    private void Start()
+    {
         
+    }
+
 
     public void IncreaseAttributes(int damage)
     {
@@ -56,6 +60,29 @@ public abstract class Enemies : MonoBehaviour
             Destroy(gameObject);
     }
 
-   
-    
+    protected void Initialization()
+
+  {
+      int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
+      sr.sprite = esc.enemySprites[randomIndex];
+      if (randomIndex == 0)
+      {
+          gameObject.tag = "SquareEnemy";
+      }
+      else if (randomIndex == 1)
+      {
+          gameObject.tag = "CircleEnemy";
+      }
+      else if (randomIndex == 2)
+      {
+          gameObject.tag = "TriangleEnemy";
+      }
+      else if (randomIndex == 3)
+      {
+          gameObject.tag = "RhombEnemy";
+      }
+  }
+
+
+
 }

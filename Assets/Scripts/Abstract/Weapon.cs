@@ -6,7 +6,7 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     public float cooldown;
-    [SerializeField] private GameObject projectile;
+    public GameObject projectile;
 
     public void Shoot(Transform currentPos)
     {

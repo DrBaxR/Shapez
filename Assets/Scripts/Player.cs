@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         /*  c.a = 1f;
           sr.material.color = c;*/
 
-        Shoot();
+        //Shoot();
         ChangeWeapon();
     }
 
@@ -109,6 +109,8 @@ public class Player : MonoBehaviour
                 currentWeapon = inventory[index];
             }
         }
+        Shooting daniel = GetComponent<Shooting>();
+        daniel.daniel  = currentWeapon;
     }
 
     private void Shoot()

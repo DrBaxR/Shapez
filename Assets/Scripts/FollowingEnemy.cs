@@ -6,13 +6,15 @@ public class FollowingEnemy : Enemies
 {
     private Transform target;
     private Player player;
-    public EnemySpriteContainer esc;
-    private SpriteRenderer sr;
+   // public EnemySpriteContainer esc;
+  //  private SpriteRenderer sr;
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        /*sr = GetComponent<SpriteRenderer>();
+        Initialization();*/
         sr = GetComponent<SpriteRenderer>();
         Initialization();
     }
@@ -37,8 +39,7 @@ public class FollowingEnemy : Enemies
             Destroy(gameObject);
         }
     }
-
-    public void Initialization()
+/*  public void Initialization()
 
     {
         int randomIndex = Random.Range(0, esc.enemySprites.Count);
@@ -59,7 +60,7 @@ public class FollowingEnemy : Enemies
         {
             gameObject.tag = "RhombEnemy";
         }
-    }
+    }*/
 
 
 

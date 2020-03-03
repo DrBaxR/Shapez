@@ -10,8 +10,8 @@ public class MultiplyingEnemy : Enemies
     public float timeBtwSpawns;
     public GameObject enemyPrefab;
     public int numberOfClonedTimes;
-    public EnemySpriteContainer esc;
-    private SpriteRenderer sr;
+   // public EnemySpriteContainer esc;
+    //private SpriteRenderer sr;
 
 
 
@@ -23,6 +23,8 @@ public class MultiplyingEnemy : Enemies
     {
         startTimeBtwSpawns = timeBtwSpawns;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        /* sr = GetComponent<SpriteRenderer>();
+         Initialization();*/
         sr = GetComponent<SpriteRenderer>();
         Initialization();
     }
@@ -58,9 +60,9 @@ public class MultiplyingEnemy : Enemies
         Vector2 dir = spawnPoints[randomPoint1].position - transform.position;
         dir = dir.normalized;
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject;
-        enemy.gameObject.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
+        //enemy.gameObject.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
         Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(dir*500f);
+        rb.AddForce(dir*10f);
         yield return null;
     }
 
@@ -78,7 +80,7 @@ public class MultiplyingEnemy : Enemies
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
     }
-public void Initialization()
+/*public void Initialization()
 
 {
     int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
@@ -99,5 +101,5 @@ public void Initialization()
     {
         gameObject.tag = "RhombEnemy";
     }
-}
+}*/
 }

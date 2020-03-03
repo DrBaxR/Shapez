@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 
     public float forceRatio;
     public GameObject bulletPrefab;
+    public Weapon daniel;
 
 
     // Start is called before the first frame update
@@ -28,7 +29,9 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+            daniel.Shoot(this.transform);
+           // daniel.projectile.GetComponent<Projectile>();
+            /*Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
             direction = direction.normalized;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -37,7 +40,7 @@ public class Shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, this.transform.position, rotation) as GameObject;
             //myAudio.PlayAudio("laserAttack");
             Projectile proj = bullet.GetComponent<Projectile>();
-            proj.SetDirection(direction);
+            proj.SetDirection(direction);*/
         }
     }
 

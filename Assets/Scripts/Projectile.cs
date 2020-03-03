@@ -30,8 +30,11 @@ public class Projectile : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = dir * speed;
+        
         initialPos = this.transform.position;
+        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+        dir = dir.normalized;
+        rb.velocity = dir * speed;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 }
