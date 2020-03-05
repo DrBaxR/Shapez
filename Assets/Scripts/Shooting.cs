@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-
+    public Transform explosion;
     public float forceRatio;
     public GameObject bulletPrefab;
     public Weapon daniel;
+    public GameObject expVFX;
 
 
     // Start is called before the first frame update
@@ -42,6 +43,46 @@ public class Shooting : MonoBehaviour
             Projectile proj = bullet.GetComponent<Projectile>();
             proj.SetDirection(direction);*/
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            // Instantiate(explVFX, transform.position, Quaternion.identity);
+
+
+
+            Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
+            for (int i = 0; i < col.Length; i++)
+            {
+                Instantiate(expVFX, this.transform.position, Quaternion.identity);
+                if (col[i].gameObject.CompareTag("RhombEnemy"))
+
+                {
+                    Debug.Log("Rhomb");
+                    Destroy(col[i].gameObject);
+                }
+                else if (col[i].gameObject.CompareTag("SquareEnemy"))
+                {
+                    Debug.Log("Square");
+                    Destroy(col[i].gameObject);
+                }
+                else if (col[i].gameObject.CompareTag("TriangleEnemy"))
+                {
+                    Debug.Log("Triangle");
+                    Destroy(col[i].gameObject);
+                }
+                else if (col[i].gameObject.CompareTag("CircleEnemy"))
+                {
+                    Debug.Log("Circle");
+                    Destroy(col[i].gameObject);
+                }
+
+
+
+                    // else 
+                }
+
+
+            }
     }
 
 

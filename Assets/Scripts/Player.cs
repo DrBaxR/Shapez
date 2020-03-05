@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float range;
     public int damage;
     public int health;
+    public Transform explosion;
+    public GameObject explVFX;
 
     private float moveInputX;
     private float moveInputY;
@@ -28,14 +30,14 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        #if UNITY_EDITOR
-                Debug.Log("Editor");
-                pcMovement = true;
-        #elif UNITY_STANDALONE_WIN
+#if UNITY_EDITOR
+        Debug.Log("Editor");
+        pcMovement = true;
+#elif UNITY_STANDALONE_WIN
                 Debug.Log("Windows");
                 pcMovement = true;
         
-        #endif
+#endif
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<Renderer>();
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
 
         //Shoot();
         ChangeWeapon();
+        Explosion();
     }
 
     private void FixedUpdate()
@@ -96,7 +99,7 @@ public class Player : MonoBehaviour
 
     private void MoveOnPcAndEditor()
     {
-        
+
     }
 
     private void ChangeWeapon()
@@ -110,7 +113,7 @@ public class Player : MonoBehaviour
             }
         }
         Shooting daniel = GetComponent<Shooting>();
-        daniel.daniel  = currentWeapon;
+        daniel.daniel = currentWeapon;
         GetComponent<SpriteRenderer>().sprite = currentWeapon.sprite;
     }
 
@@ -121,5 +124,16 @@ public class Player : MonoBehaviour
             nextShot += currentWeapon.cooldown;
             currentWeapon.Shoot(transform);
         }
+    }
+
+    private void Explosion()
+    {
+        
+
+        /*void OnParticleCollision(GameObject other)
+        {
+            if (other.tag != this.gameObject.tag)
+                Destroy(other.gameObject);
+        }*/
     }
 }
