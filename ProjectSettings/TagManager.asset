@@ -12,6 +12,8 @@ TagManager:
   - TriangleEnemy
   - RhombEnemy
   - CircleEnemy
+  - Particle
+  - ExplosionParticle
   layers:
   - Default
   - TransparentFX

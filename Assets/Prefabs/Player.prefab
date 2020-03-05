@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7412922178205291864}
   - component: {fileID: 7412922178205291876}
   - component: {fileID: 7412922178205291879}
+  - component: {fileID: 404522833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -153,6 +154,7 @@ MonoBehaviour:
     type: 3}
   daniel: {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
   expVFX: {fileID: 2289531826347975824, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
+  nextExplosionCooldown: 5
 --- !u!61 &7412922178205291879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +181,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &404522833
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412922178205291865}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.9
 --- !u!1 &7412922178268717051
 GameObject:
   m_ObjectHideFlags: 0

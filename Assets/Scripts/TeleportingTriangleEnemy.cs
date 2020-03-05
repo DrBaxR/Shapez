@@ -117,6 +117,10 @@ public class TeleportingTriangleEnemy : Enemies
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
+       /* if (collision.CompareTag("ExplosionParticle"))
+        {
+            Destroy(gameObject);
+        }*/
     }
 
     /*public void Initialization()

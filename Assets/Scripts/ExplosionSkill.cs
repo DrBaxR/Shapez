@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public class ExplosionSkill : ActiveSkills
 {
-    public float duration;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,6 @@ public class Destroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(this.gameObject, duration);
+        
     }
 }

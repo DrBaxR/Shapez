@@ -38,6 +38,10 @@ public class FollowingEnemy : Enemies
             player.health = this.DealDamage(player.health);
             Destroy(gameObject);
         }
+        /*if (collision.CompareTag("ExplosionParticle"))
+        {
+            Destroy(gameObject);
+        }*/
     }
 /*  public void Initialization()
 

@@ -11,11 +11,14 @@ public class Shooting : MonoBehaviour
     public Weapon daniel;
     public GameObject expVFX;
 
+    private float coolDown;
+    public float nextExplosionCooldown;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+         coolDown=nextExplosionCooldown;
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class Shooting : MonoBehaviour
     {
 
         Shootno();
+        nextExplosionCooldown -= Time.deltaTime;
         // StartCoroutine(Shoot());
     }
 
@@ -43,14 +47,15 @@ public class Shooting : MonoBehaviour
             Projectile proj = bullet.GetComponent<Projectile>();
             proj.SetDirection(direction);*/
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && nextExplosionCooldown<=0)
         {
 
-            // Instantiate(explVFX, transform.position, Quaternion.identity);
+            Instantiate(expVFX, transform.position, Quaternion.identity);
+            nextExplosionCooldown = coolDown;
 
 
 
-            Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
+           /* Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
             for (int i = 0; i < col.Length; i++)
             {
                 Instantiate(expVFX, this.transform.position, Quaternion.identity);
@@ -79,7 +84,7 @@ public class Shooting : MonoBehaviour
 
 
                     // else 
-                }
+                }*/
 
 
             }
