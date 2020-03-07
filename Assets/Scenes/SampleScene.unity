@@ -1064,11 +1064,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Multiplying Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6915160643491604280, guid: e1d128ed44043bf47b92f9939a88a86c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4378231437288882012, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1124,28 +1119,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1783249584, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1218084778, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 507143359, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 640340021, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 9166611981483019326, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}
-      propertyPath: esc
-      value: 
-      objectReference: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98,
-        type: 2}
+      propertyPath: timeBtwSpawns
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}
 --- !u!1001 &4051659541285544887
