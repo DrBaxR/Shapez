@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
         Color c = sr.material.color;
         c.a = 0.5f;
         sr.material.color = c;
-        Debug.Log(rb.velocity.magnitude);
         /*  c.a = 1f;
           sr.material.color = c;*/
 
