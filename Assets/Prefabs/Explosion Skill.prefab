@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8082834549443482252}
   - component: {fileID: 5920920672862830140}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Explosion Skill
   m_TagString: ExplosionParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4853,6 +4853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1abefd4a568e19408738ec1dcf924e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDown: 5
+  currentCoolDown: 0
+  skillIcon: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
+    type: 3}
+  isReady: 0
   finalSize: 9
   increaseSpeed: 5
 --- !u!58 &-8082834549443482252

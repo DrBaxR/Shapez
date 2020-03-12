@@ -11,14 +11,16 @@ public class Shooting : MonoBehaviour
     public Weapon daniel;
     public GameObject expVFX;
 
-    private float coolDown;
-    public float nextExplosionCooldown;
+    private SkillManager skillManager;
+    //private float coolDown;
+    //public float nextExplosionCooldown;
 
 
     // Start is called before the first frame update
     void Start()
     {
-         coolDown=nextExplosionCooldown;
+        //  explosionSkill = expVFX.gameObject.GetComponent<Explosion>();
+        skillManager = GameObject.FindGameObjectWithTag("SkillManager").GetComponent<SkillManager>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class Shooting : MonoBehaviour
     {
 
         Shootno();
-        nextExplosionCooldown -= Time.deltaTime;
+        //nextExplosionCooldown -= Time.deltaTime;
         // StartCoroutine(Shoot());
     }
 
@@ -47,7 +49,51 @@ public class Shooting : MonoBehaviour
             Projectile proj = bullet.GetComponent<Projectile>();
             proj.SetDirection(direction);*/
         }
-        if (Input.GetKeyDown(KeyCode.Space) && nextExplosionCooldown<=0)
+        if (Input.GetKeyDown(KeyCode.Space) && skillManager.skills[0].isReady)
+        {
+          
+            Instantiate(expVFX, transform.position, Quaternion.identity);
+            skillManager.skills[0].isReady = false;
+            skillManager.skills[0].currentCoolDown = 0;
+           // nextExplosionCooldown = coolDown;
+
+
+
+            /* Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
+             for (int i = 0; i < col.Length; i++)
+             {
+                 Instantiate(expVFX, this.transform.position, Quaternion.identity);
+                 if (col[i].gameObject.CompareTag("RhombEnemy"))
+
+                 {
+                     Debug.Log("Rhomb");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("SquareEnemy"))
+                 {
+                     Debug.Log("Square");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("TriangleEnemy"))
+                 {
+                     Debug.Log("Triangle");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("CircleEnemy"))
+                 {
+                     Debug.Log("Circle");
+                     Destroy(col[i].gameObject);
+                 }
+
+
+
+                     // else 
+                 }*/
+
+
+            }
+
+       /* if (Input.GetKeyDown(KeyCode.Space) && nextExplosionCooldown <= 0)
         {
 
             Instantiate(expVFX, transform.position, Quaternion.identity);
@@ -55,39 +101,40 @@ public class Shooting : MonoBehaviour
 
 
 
-           /* Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
-            for (int i = 0; i < col.Length; i++)
-            {
-                Instantiate(expVFX, this.transform.position, Quaternion.identity);
-                if (col[i].gameObject.CompareTag("RhombEnemy"))
+            /* Collider2D[] col = Physics2D.OverlapCircleAll(explosion.position, 5);
+             for (int i = 0; i < col.Length; i++)
+             {
+                 Instantiate(expVFX, this.transform.position, Quaternion.identity);
+                 if (col[i].gameObject.CompareTag("RhombEnemy"))
 
-                {
-                    Debug.Log("Rhomb");
-                    Destroy(col[i].gameObject);
-                }
-                else if (col[i].gameObject.CompareTag("SquareEnemy"))
-                {
-                    Debug.Log("Square");
-                    Destroy(col[i].gameObject);
-                }
-                else if (col[i].gameObject.CompareTag("TriangleEnemy"))
-                {
-                    Debug.Log("Triangle");
-                    Destroy(col[i].gameObject);
-                }
-                else if (col[i].gameObject.CompareTag("CircleEnemy"))
-                {
-                    Debug.Log("Circle");
-                    Destroy(col[i].gameObject);
-                }
-
-
-
-                    // else 
-                }*/
+                 {
+                     Debug.Log("Rhomb");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("SquareEnemy"))
+                 {
+                     Debug.Log("Square");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("TriangleEnemy"))
+                 {
+                     Debug.Log("Triangle");
+                     Destroy(col[i].gameObject);
+                 }
+                 else if (col[i].gameObject.CompareTag("CircleEnemy"))
+                 {
+                     Debug.Log("Circle");
+                     Destroy(col[i].gameObject);
+                 }
 
 
-            }
+
+                     // else 
+                 }
+                 }*/
+
+
+        
     }
 
 

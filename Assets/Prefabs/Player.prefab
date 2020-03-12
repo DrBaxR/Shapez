@@ -154,7 +154,8 @@ MonoBehaviour:
     type: 3}
   daniel: {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
   expVFX: {fileID: 2289531826347975824, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
-  nextExplosionCooldown: 5
+  explosionSkill: {fileID: -7273654961572272197, guid: d608c9d748d609b4e96c5f669cadbfe1,
+    type: 3}
 --- !u!61 &7412922178205291879
 BoxCollider2D:
   m_ObjectHideFlags: 0

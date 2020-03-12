@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Explosion : ActiveSkills
 {
     private CircleCollider2D circle;
    // private BoxCollider2D boxCollider;
@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     {
         //boxCollider = GetComponent<BoxCollider2D>();
         circle = GetComponent<CircleCollider2D>();
+        this.isReady = false;
     }
 
     private void Update()
