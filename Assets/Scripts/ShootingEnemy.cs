@@ -10,15 +10,17 @@ public class ShootingEnemy : Enemies
     public float shootCooldown;
     public ProjectileContainer pc;
 
+    private Player player;
     private SpriteRenderer rend;
-    private Transform player;
+    private Transform target;
     private float initCooldown = 0.0f;
     private GameObject projectile;
     private int nOfCorners;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         initCooldown = shootCooldown;
         Color c = new Color(12, 12, 12, 1);
 
@@ -36,7 +38,7 @@ public class ShootingEnemy : Enemies
 
     private void Movement()
     {
-        float currDist = Vector2.Distance(this.transform.position, player.position);
+        float currDist = Vector2.Distance(this.transform.position, target.position);
 
         Debug.Log(currDist);
 
@@ -48,12 +50,12 @@ public class ShootingEnemy : Enemies
         if (currDist >= followDistance)
         {
             //prea departe de player
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         if(currDist <= retreatDistance)
         {
             //prea aproape de player
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
         }
     }
 
@@ -99,5 +101,45 @@ public class ShootingEnemy : Enemies
             projectile = pc.projectiles[0];
             nOfCorners = 10;
         }
+
+       
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (this.tag == "TriangleEnemy")
+        {
+            if (collision.tag == "TriangleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "SquareEnemy")
+        {
+            if (collision.tag == "SquareProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "RhombEnemy")
+        {
+            if (collision.tag == "RhombProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "CircleEnemy")
+        {
+            if (collision.tag == "CircleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+    }
+
 }

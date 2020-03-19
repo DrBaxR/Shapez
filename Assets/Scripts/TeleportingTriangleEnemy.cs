@@ -8,11 +8,13 @@ public class TeleportingTriangleEnemy : Enemies
 
     public float explosionRadius;
     public Transform explosionCenter;
-  //  public EnemySpriteContainer esc;
+    //  public EnemySpriteContainer esc;
+
+    public Player player;
 
     private float minRadius = 2;
     private float maxRadius = 3;
-    private Transform player;
+    private Transform target;
     private bool moving;
     private float nextTeleport;
     //private SpriteRenderer sr;
@@ -22,7 +24,8 @@ public class TeleportingTriangleEnemy : Enemies
     {
         moving = true;
         nextTeleport = 0;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         /* sr = GetComponent<SpriteRenderer>();
          Initialization();*/
         sr = GetComponent<SpriteRenderer>();
@@ -42,7 +45,7 @@ public class TeleportingTriangleEnemy : Enemies
     private void Move()
     {
         if (moving)
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position, this.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, target.position, this.speed * Time.deltaTime);
     }
 
     private void Teleport()
@@ -50,14 +53,14 @@ public class TeleportingTriangleEnemy : Enemies
         if (nextTeleport > 5f)
         {
             Vector3 randomPos = UnityEngine.Random.insideUnitCircle * (maxRadius - minRadius);
-            this.transform.position = player.position+ randomPos.normalized*minRadius+randomPos;
+            this.transform.position = target.position+ randomPos.normalized*minRadius+randomPos;
             StartCoroutine(SetMoving());
             nextTeleport = 0;
 
 
         }
 
-        else if (Vector2.Distance(transform.position, player.position) < 2f)
+        else if (Vector2.Distance(transform.position, target.position) < 2f)
         {
             StartCoroutine(SetMoving());
         }
@@ -117,10 +120,43 @@ public class TeleportingTriangleEnemy : Enemies
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
-       /* if (collision.CompareTag("ExplosionParticle"))
+
+        if (this.tag == "TriangleEnemy")
         {
-            Destroy(gameObject);
-        }*/
+            if (collision.tag == "TriangleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "SquareEnemy")
+        {
+            if (collision.tag == "SquareProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "RhombEnemy")
+        {
+            if (collision.tag == "RhombProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "CircleEnemy")
+        {
+            if (collision.tag == "CircleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        /* if (collision.CompareTag("ExplosionParticle"))
+         {
+             Destroy(gameObject);
+         }*/
     }
 
     /*public void Initialization()

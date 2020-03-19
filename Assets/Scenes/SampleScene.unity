@@ -120,6 +120,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23108526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5705315226885825627, guid: c4180ef3fbc37e048b8c72d30e73e6f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5705315228490409024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &23108530
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23108526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3333334, y: 1.3333334}
+    newSize: {x: 1.3333334, y: 1.3333334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_EdgeRadius: 0
 --- !u!1 &30158876
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +945,7 @@ PrefabInstance:
     - target: {fileID: 5453591252141592443, guid: 1edf6f95b23a5eb49845890466132e83,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453591252141592446, guid: 1edf6f95b23a5eb49845890466132e83,
         type: 3}
@@ -1802,11 +1834,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Multiplying Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6915160643491604280, guid: e1d128ed44043bf47b92f9939a88a86c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4378231437288882012, guid: e1d128ed44043bf47b92f9939a88a86c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1861,11 +1888,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166611981483019326, guid: e1d128ed44043bf47b92f9939a88a86c,
-        type: 3}
-      propertyPath: timeBtwSpawns
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d128ed44043bf47b92f9939a88a86c, type: 3}

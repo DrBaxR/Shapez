@@ -81,6 +81,8 @@ public abstract class Enemies : MonoBehaviour
       {
           gameObject.tag = "RhombEnemy";
       }
+
+      
   }
 
 

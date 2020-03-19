@@ -28,15 +28,44 @@ public class FollowingEnemy : Enemies
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("SquareProjectile"))
-        {
-            this.TakeDamage(player.damage);
-            Destroy(collision.gameObject);
-        }
+       
         if(collision.CompareTag("Player"))
         {
             player.health = this.DealDamage(player.health);
             Destroy(gameObject);
+        }
+
+        if(this.tag == "TriangleEnemy")
+        {
+            if(collision.tag == "TriangleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "SquareEnemy")
+        {
+            if (collision.tag == "SquareProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "RhombEnemy")
+        {
+            if (collision.tag == "RhombProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "CircleEnemy")
+        {
+            if (collision.tag == "CircleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
         }
         /*if (collision.CompareTag("ExplosionParticle"))
         {

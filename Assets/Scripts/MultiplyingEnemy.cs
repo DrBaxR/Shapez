@@ -11,6 +11,8 @@ public class MultiplyingEnemy : Enemies
     public GameObject enemyPrefab;
     public int numberOfClonedTimes;
 
+    private Player player;
+
     public static float time=0f;
    
     // public EnemySpriteContainer esc;
@@ -24,12 +26,13 @@ public class MultiplyingEnemy : Enemies
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         startTimeBtwSpawns = timeBtwSpawns;
         target = GameObject.FindGameObjectWithTag("Player").transform;
         /* sr = GetComponent<SpriteRenderer>();
          Initialization();*/
         sr = GetComponent<SpriteRenderer>();
-       
+        
         Initialization();
         sr.material.color = Color.red;
         currentSprite = this.sr.sprite;
@@ -50,8 +53,8 @@ public class MultiplyingEnemy : Enemies
         }
         else { timeBtwSpawns -= Time.deltaTime; }
         time -= Time.deltaTime;
-        print(time);
-        
+       // print(time);
+        CheckForDeath();
     }
     private IEnumerator SpawnClones()
     {
@@ -82,18 +85,54 @@ public class MultiplyingEnemy : Enemies
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("CircleProjectile"))
-        {
-            this.TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().damage);
-            Destroy(collision.gameObject);
-        }
+       
 
         if (collision.CompareTag("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
+
+
+        if (collision.CompareTag("Player"))
+        {
+            player.health = this.DealDamage(player.health);
+            Destroy(gameObject);
+        }
+
+        if (this.tag == "TriangleEnemy")
+        {
+            if (collision.tag == "TriangleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "SquareEnemy")
+        {
+            if (collision.tag == "SquareProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "RhombEnemy")
+        {
+            if (collision.tag == "RhombProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+        if (this.tag == "CircleEnemy")
+        {
+            if (collision.tag == "CircleProjectile")
+            {
+                this.TakeDamage(player.damage);
+                Destroy(collision.gameObject);
+            }
+        }
     }
-public new void Initialization()
+/*public new void Initialization()
 
 {
         if (time<=0f)
@@ -125,5 +164,5 @@ public new void Initialization()
            
         }
     
-   }
+   }*/
 }
