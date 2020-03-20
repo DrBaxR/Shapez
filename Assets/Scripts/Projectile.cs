@@ -37,4 +37,5 @@ public class Projectile : MonoBehaviour
         rb.velocity = dir * speed;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
+
 }

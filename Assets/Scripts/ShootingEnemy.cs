@@ -11,7 +11,7 @@ public class ShootingEnemy : Enemies
     public ProjectileContainer pc;
 
     private Player player;
-    private SpriteRenderer rend;
+    
     private Transform target;
     private float initCooldown = 0.0f;
     private GameObject projectile;
@@ -19,21 +19,25 @@ public class ShootingEnemy : Enemies
 
     void Start()
     {
+        sr= GetComponent<SpriteRenderer>();
+        Initialization();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         initCooldown = shootCooldown;
         Color c = new Color(12, 12, 12, 1);
 
-        rend = gameObject.GetComponent<SpriteRenderer>();
-        rend.material.color = Color.magenta;
+        
+        sr.material.color = Color.magenta;
 
         InitShape();
+        
     }
 
     void Update()
     {
         Movement();
         Shooting();
+        CheckForDeath();
     }
 
     private void Movement()
@@ -64,11 +68,14 @@ public class ShootingEnemy : Enemies
         if (shootCooldown <= 0)
         {
             //shoot
+           
+           
             int shots = 0;
             while (shots < nOfCorners)
             {
                 shots++;
                 Instantiate(projectile, transform.position, transform.rotation);
+               // projectile.gameObject.GetComponent<EnemyProjectile>().SetDir(distance);
             }
 
             shootCooldown = initCooldown;
@@ -108,7 +115,7 @@ public class ShootingEnemy : Enemies
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.tag == "TriangleEnemy")
+         if (this.tag == "TriangleEnemy")
         {
             if (collision.tag == "TriangleProjectile")
             {

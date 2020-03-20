@@ -87,10 +87,10 @@ public class MultiplyingEnemy : Enemies
     {
        
 
-        if (collision.CompareTag("Player"))
+        /*if (collision.CompareTag("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
-        }
+        }*/
 
 
         if (collision.CompareTag("Player"))
