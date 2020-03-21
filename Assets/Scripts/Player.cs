@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Vector2 movementDirection;
     private Rigidbody2D rb;
     private Renderer sr;
+    private GameManager gm;
 
     private bool pcMovement;
     private bool otherMovement;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<Renderer>();
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         currentWeapon = inventory[0];
     }
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
         //Shoot();
         ChangeWeapon();
         Explosion();
+        OnYandereSimCodeLMAO();
     }
 
     private void FixedUpdate()
@@ -134,5 +137,14 @@ public class Player : MonoBehaviour
             if (other.tag != this.gameObject.tag)
                 Destroy(other.gameObject);
         }*/
+    }
+
+    private void OnYandereSimCodeLMAO()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            gm.UpdateHighScore();
+        }
     }
 }

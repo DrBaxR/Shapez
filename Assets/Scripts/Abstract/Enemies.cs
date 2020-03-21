@@ -8,7 +8,8 @@ public abstract class Enemies : MonoBehaviour
     public int health;
     public int damage;
     public float timeUntillIncrease;
-    
+    public int scorePoints;
+
     public float speed;
 
 
@@ -57,7 +58,10 @@ public abstract class Enemies : MonoBehaviour
     protected void CheckForDeath()
     {
         if (health <= 0)
+        {
+            GameManager.scorel += scorePoints;
             Destroy(gameObject);
+        }
     }
 
     protected void Initialization()

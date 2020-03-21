@@ -18,7 +18,7 @@ public class TeleportingTriangleEnemy : Enemies
     private bool moving;
     private float nextTeleport;
     //private SpriteRenderer sr;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +37,8 @@ public class TeleportingTriangleEnemy : Enemies
     {
         Move();
         Teleport();
+        CheckForDeath();
 
-        
     }
 
 
@@ -53,7 +53,7 @@ public class TeleportingTriangleEnemy : Enemies
         if (nextTeleport > 5f)
         {
             Vector3 randomPos = UnityEngine.Random.insideUnitCircle * (maxRadius - minRadius);
-            this.transform.position = target.position+ randomPos.normalized*minRadius+randomPos;
+            this.transform.position = target.position + randomPos.normalized * minRadius + randomPos;
             StartCoroutine(SetMoving());
             nextTeleport = 0;
 
@@ -75,7 +75,7 @@ public class TeleportingTriangleEnemy : Enemies
 
 
 
-   
+
 
 
     private IEnumerator SetMoving()
@@ -90,8 +90,8 @@ public class TeleportingTriangleEnemy : Enemies
     {
         yield return new WaitForSeconds(0.5f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(explosionCenter.position, explosionRadius);
-        
-        for(int i =0;i<hits.Length;i++)
+
+        for (int i = 0; i < hits.Length; i++)
         {
             if (hits[i].gameObject.tag == "Player")
             {
@@ -105,54 +105,72 @@ public class TeleportingTriangleEnemy : Enemies
             Destroy(this.gameObject);
 
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.CompareTag("TriangleProjectile"))
         {
             this.TakeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().damage);
             Destroy(collision.gameObject);
         }
+        */
 
         if (collision.CompareTag("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }
-
-        if (this.tag == "TriangleEnemy")
+        else if (this.tag == "TriangleEnemy")
         {
             if (collision.tag == "TriangleProjectile")
             {
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
-        if (this.tag == "SquareEnemy")
+        else if (this.tag == "SquareEnemy")
         {
             if (collision.tag == "SquareProjectile")
             {
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
-        if (this.tag == "RhombEnemy")
+        else if (this.tag == "RhombEnemy")
         {
             if (collision.tag == "RhombProjectile")
             {
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
-        if (this.tag == "CircleEnemy")
+        else if (this.tag == "CircleEnemy")
         {
             if (collision.tag == "CircleProjectile")
             {
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
+        
         /* if (collision.CompareTag("ExplosionParticle"))
          {
              Destroy(gameObject);

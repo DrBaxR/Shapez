@@ -15,6 +15,12 @@ TagManager:
   - Particle
   - ExplosionParticle
   - SkillManager
+  - CircleProjectileEnemy
+  - SquareProjecitleEnemy
+  - RhombProjectileEnemy
+  - GameManager
+  - TriangleProjectileEnemy
+  - TriangleProjectileEnemuy
   layers:
   - Default
   - TransparentFX

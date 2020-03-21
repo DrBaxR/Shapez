@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject randomWaveSpawner;
     public Text counter;
+    public TextMeshProUGUI scorelText;
     private float startTime;
+
+    private static float incrementCooldown = 15.0f;
+    private static int scorelIncrement = 10;
+    public static int scorel = 0;
+
+    private float nextIncrement;
 
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
         randomWaveSpawner.SetActive(false);
+        nextIncrement = incrementCooldown;
     }
 
     // Update is called once per frame
@@ -23,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             randomWaveSpawner.SetActive(true);
         }
+
+        UpdateScore();
     }
 
     private void UpdateUI()
@@ -31,7 +42,26 @@ public class GameManager : MonoBehaviour
         string minutes = ((int)time / 60).ToString();
         string seconds = ((int)time % 60).ToString("f0");
         counter.text = minutes + ":" + seconds;
+
+        scorelText.text = "Score: " + scorel;
     }
 
+    private void UpdateScore()
+    {
+        if (Time.time >= nextIncrement)
+        {
+            scorel += scorelIncrement;
+            nextIncrement = Time.time + incrementCooldown;
+        }
+    }
+
+    public void UpdateHighScore()
+    {
+        if (scorel > PlayerPrefs.GetInt("highscore"))
+        {
+            PlayerPrefs.SetInt("highscore", scorel);
+        }
+
+    }
 
 }

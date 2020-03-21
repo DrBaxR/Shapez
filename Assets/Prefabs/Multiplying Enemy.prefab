@@ -142,6 +142,7 @@ MonoBehaviour:
   health: 2
   damage: 0
   timeUntillIncrease: 0
+  scorePoints: 5
   speed: 1
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
   spawnPoints:

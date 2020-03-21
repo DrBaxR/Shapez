@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2433962782269245939}
   m_Layer: 0
   m_Name: ProjectileTriangleEnemy
-  m_TagString: TriangleProjectileEnemuy
+  m_TagString: TriangleProjectileEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

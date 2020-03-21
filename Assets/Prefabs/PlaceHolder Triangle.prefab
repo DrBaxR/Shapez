@@ -129,10 +129,12 @@ MonoBehaviour:
   health: 2
   damage: 2
   timeUntillIncrease: 2
+  scorePoints: 5
   speed: 3
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
   explosionRadius: 3
   explosionCenter: {fileID: 5453591250427233571}
+  player: {fileID: 0}
 --- !u!50 &7857421958511592507
 Rigidbody2D:
   serializedVersion: 4

@@ -98,6 +98,7 @@ MonoBehaviour:
   health: 2
   damage: 1
   timeUntillIncrease: 5
+  scorePoints: 5
   speed: 3
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
 --- !u!61 &-7889371636369634481
