@@ -407,15 +407,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 547675485}
     m_Modifications:
-    - target: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6332384840347492290, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
         type: 3}
       propertyPath: m_Name
       value: Cooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6332384840347492301, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
         type: 3}
