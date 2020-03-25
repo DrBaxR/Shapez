@@ -34,6 +34,9 @@ public class Projectile : MonoBehaviour
         initialPos = this.transform.position;
         Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
         dir = dir.normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = rotation;
         rb.velocity = dir * speed;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }

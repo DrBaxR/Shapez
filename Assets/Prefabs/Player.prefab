@@ -110,6 +110,8 @@ MonoBehaviour:
   health: 10
   explosion: {fileID: 159224358740606348}
   explVFX: {fileID: 2289531826347975824, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
+  timeBtwDashes: 5
+  dashSpeed: 50
   inventory:
   - {fileID: 11400000, guid: a00e8b4a96ed0274394a0026b82b83a7, type: 2}
   - {fileID: 11400000, guid: 3dd05b011fdb57a4eb33e95ca6125c65, type: 2}

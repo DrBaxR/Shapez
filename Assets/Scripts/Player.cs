@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     public int health;
     public Transform explosion;
     public GameObject explVFX;
+    public float timeBtwDashes;
+    public float dashSpeed;
 
     private float moveInputX;
     private float moveInputY;
+    private float startTimeBtwDashes;
 
     private Vector2 movementDirection;
     private Rigidbody2D rb;
@@ -21,13 +24,17 @@ public class Player : MonoBehaviour
 
     private bool pcMovement;
     private bool otherMovement;
+    private bool canDash;
+
+    private int direction;
+
 
     //legate de inventar
     [SerializeField] private List<Weapon> inventory;
     private float nextShot = 0.0f;
 
     private Weapon currentWeapon;
-
+   
 
     void Start()
     {
@@ -45,6 +52,8 @@ public class Player : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         currentWeapon = inventory[0];
+        canDash = false;
+        startTimeBtwDashes = timeBtwDashes;
     }
 
     private void Update()
@@ -58,6 +67,7 @@ public class Player : MonoBehaviour
         //Shoot();
         ChangeWeapon();
         Explosion();
+        Dash();
         OnYandereSimCodeLMAO();
     }
 
@@ -146,5 +156,51 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             gm.UpdateHighScore();
         }
+    }
+
+    private void Dash()
+    {
+        
+          /* if(direction==0)
+        {
+            if(moveInputX < 0)
+            {
+                direction = 1;
+            }
+            else if(moveInputX > 0)
+            {
+                direction = 2;
+            }
+            else if(moveInputY )
+        }*/
+        
+            if (timeBtwDashes <= 0)
+            {
+                canDash = true;
+
+            rb.velocity = Vector2.zero;
+                
+                
+            }
+            else
+            {
+                timeBtwDashes -= Time.deltaTime;
+            }
+        
+        if(canDash)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+               // rb.velocity = Vector2.zero;
+                timeBtwDashes = startTimeBtwDashes;
+                Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+                // direction = direction.normalized;
+                //direction = direction.normalized;
+                rb.velocity = direction * dashSpeed;
+                rb.AddForce(direction * dashSpeed);
+                canDash = false;
+            }
+        }
+       
     }
 }

@@ -45,7 +45,17 @@ public class TeleportingTriangleEnemy : Enemies
     private void Move()
     {
         if (moving)
+        {
             transform.position = Vector2.MoveTowards(this.transform.position, target.position, this.speed * Time.deltaTime);
+            Vector2 dir = target.position - this.transform.position;
+            dir = dir.normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = rotation;
+
+        }
     }
 
     private void Teleport()
