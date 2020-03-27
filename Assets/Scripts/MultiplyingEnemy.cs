@@ -152,10 +152,13 @@ public class MultiplyingEnemy : Enemies
 public new void Initialization()
 
 {
+
         if (time<=0f)
         {
             int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
             sr.sprite = esc.enemySprites[randomIndex];
+            int randomIndexVFX = UnityEngine.Random.Range(0, vfxC.deathVFXs.Count);
+            deathVFX = vfxC.deathVFXs[randomIndexVFX];
             if (randomIndex == 0)
             {
                 gameObject.tag = "SquareEnemy";

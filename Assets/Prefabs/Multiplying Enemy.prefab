@@ -145,6 +145,7 @@ MonoBehaviour:
   scorePoints: 5
   speed: 1
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
+  vfxC: {fileID: 11400000, guid: bd4463b4074ee0543a81f53b6bc69e63, type: 2}
   spawnPoints:
   - {fileID: 1783249584}
   - {fileID: 1218084778}

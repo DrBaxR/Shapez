@@ -30,6 +30,7 @@ public class TeleportingTriangleEnemy : Enemies
          Initialization();*/
         sr = GetComponent<SpriteRenderer>();
         Initialization();
+
     }
 
     // Update is called once per frame

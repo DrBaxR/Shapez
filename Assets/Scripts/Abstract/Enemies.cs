@@ -15,6 +15,9 @@ public abstract class Enemies : MonoBehaviour
 
     protected SpriteRenderer sr;
     public EnemySpriteContainer esc;
+    public VFXContainer vfxC;
+
+    protected GameObject deathVFX;
 
     private float time=0f;
 
@@ -60,6 +63,7 @@ public abstract class Enemies : MonoBehaviour
         if (health <= 0)
         {
             GameManager.scorel += scorePoints;
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -68,19 +72,25 @@ public abstract class Enemies : MonoBehaviour
 
   {
       int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
+        //will remove this variable soon
+        
       sr.sprite = esc.enemySprites[randomIndex];
+      
       if (randomIndex == 0)
       {
           gameObject.tag = "SquareEnemy";
-      }
+            deathVFX = vfxC.deathVFXs[0];
+        }
       else if (randomIndex == 1)
       {
           gameObject.tag = "CircleEnemy";
+
       }
       else if (randomIndex == 2)
       {
           gameObject.tag = "TriangleEnemy";
-      }
+            deathVFX = vfxC.deathVFXs[1];
+        }
       else if (randomIndex == 3)
       {
           gameObject.tag = "RhombEnemy";
