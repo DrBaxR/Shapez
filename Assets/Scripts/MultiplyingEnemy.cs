@@ -147,6 +147,7 @@ public class MultiplyingEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
+        
     }
 public new void Initialization()
 
@@ -172,7 +173,7 @@ public new void Initialization()
                 gameObject.tag = "RhombEnemy";
             }
             //currentSprite = this.sr.sprite;
-            time = 20f;
+            time = 30f;
         }
         else
         {

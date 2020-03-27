@@ -44,7 +44,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2289531826347975824}
   serializedVersion: 6
-  lengthInSec: 0.5
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   skillIcon: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
     type: 3}
   isReady: 0
-  finalSize: 9
+  finalSize: 20
   increaseSpeed: 5
 --- !u!58 &-8082834549443482252
 CircleCollider2D:
@@ -4888,4 +4888,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3278ae9b0a93d214180a2e466a867166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1.7
+  duration: 3

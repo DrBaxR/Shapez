@@ -180,7 +180,12 @@ public class TeleportingTriangleEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
-        
+        else if (collision.tag.Contains("Explosion"))
+        {
+            Destroy(gameObject);
+        }
+
+
         /* if (collision.CompareTag("ExplosionParticle"))
          {
              Destroy(gameObject);

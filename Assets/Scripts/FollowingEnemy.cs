@@ -29,7 +29,11 @@ public class FollowingEnemy : Enemies
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Player"))
+       if(collision.CompareTag("ExplosionParticle"))
+        {
+            Destroy(gameObject);
+        }
+       else if (collision.CompareTag("Player"))
         {
             player.health = this.DealDamage(player.health);
             Destroy(gameObject);
@@ -77,11 +81,13 @@ public class FollowingEnemy : Enemies
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
-            else
+            else 
             {
                 Destroy(collision.gameObject);
             }
         }
+       
+
         /*if (collision.CompareTag("ExplosionParticle"))
         {
             Destroy(gameObject);
