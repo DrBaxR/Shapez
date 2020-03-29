@@ -13,6 +13,7 @@ public class Weapon : ScriptableObject
     public void Shoot(Transform currentPos)
     {
         Instantiate(projectile, currentPos.position, currentPos.rotation);
+        
     }
 
 

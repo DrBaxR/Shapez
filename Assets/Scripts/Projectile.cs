@@ -18,8 +18,11 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Vector2.Distance(initialPos, this.transform.position) >= player.range)
             Destroy(this.gameObject);
+
+
     }
 
     public void SetDirection(Vector2 dir)

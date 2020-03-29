@@ -84,17 +84,18 @@ public abstract class Enemies : MonoBehaviour
       else if (randomIndex == 1)
       {
           gameObject.tag = "CircleEnemy";
-
-      }
+            deathVFX = vfxC.deathVFXs[1];
+        }
       else if (randomIndex == 2)
       {
           gameObject.tag = "TriangleEnemy";
-            deathVFX = vfxC.deathVFXs[1];
+          deathVFX = vfxC.deathVFXs[1];
         }
       else if (randomIndex == 3)
       {
           gameObject.tag = "RhombEnemy";
-      }
+            deathVFX = vfxC.deathVFXs[1];
+        }
 
       
   }
