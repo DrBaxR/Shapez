@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 728f72b65490d144f8ac4a8cdd7130dc, type: 3}
-  m_Name: WeaponTrinagle
+  m_Name: WeaponTriangle
   m_EditorClassIdentifier: 
   cooldown: 0.1
   projectile: {fileID: 5499671392343195361, guid: 79f15ec614fe77046bca0b16c34a6f30,
     type: 3}
-  sprite: {fileID: 21300000, guid: 1f96671825e756d4ebe9bb9f9c3c509e, type: 3}
+  sprite: {fileID: 21300000, guid: 00a21038101fb4347bae49bae25d10c3, type: 3}
