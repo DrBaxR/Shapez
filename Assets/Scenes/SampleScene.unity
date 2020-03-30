@@ -487,15 +487,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 547675485}
     m_Modifications:
-    - target: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6332384840347492290, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
         type: 3}
       propertyPath: m_Name
       value: Cooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332384840347492300, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6332384840347492301, guid: fe2c75ede869d9b4da4fef5d1e4e29d5,
         type: 3}
@@ -2797,13 +2797,24 @@ PrefabInstance:
     - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
         type: 3}
       propertyPath: dashSpeed
-      value: 2000
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
         type: 3}
       propertyPath: timeBtwDashes
-      value: 0.5
+      value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
+        type: 3}
+      propertyPath: dashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
+        type: 3}
+      propertyPath: dashVFX
+      value: 
+      objectReference: {fileID: 5534768696764074242, guid: 263e59bf2446b094fad73131e06b5451,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92f1cdb464099f47b70e243d0976f92, type: 3}
 --- !u!1001 &8259887105904534416

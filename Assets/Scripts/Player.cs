@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +11,11 @@ public class Player : MonoBehaviour
     public int health;
     public Transform explosion;
     public GameObject explVFX;
-    public float timeBtwDashes;
-    public float dashSpeed;
 
+  
     private float moveInputX;
     private float moveInputY;
-    private float startTimeBtwDashes;
+ //   private float startTimeBtwDashes;
 
     private Vector2 movementDirection;
     private Rigidbody2D rb;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private bool pcMovement;
     private bool otherMovement;
-    private bool canDash;
+    //private bool canDash;
 
     private int direction;
 
@@ -34,7 +34,15 @@ public class Player : MonoBehaviour
     private float nextShot = 0.0f;
 
     private Weapon currentWeapon;
-   
+
+    [Header("Dashing")]
+    public float timeBtwDashes;
+    public float dashSpeed;
+    public float dashTime;
+    private bool canDash = true;
+    public GameObject dashVFX;
+
+
 
     void Start()
     {
@@ -52,8 +60,8 @@ public class Player : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         currentWeapon = inventory[0];
-        canDash = false;
-        startTimeBtwDashes = timeBtwDashes;
+        //canDash = false;
+       // startTimeBtwDashes = timeBtwDashes;
     }
 
     private void Update()
@@ -67,7 +75,7 @@ public class Player : MonoBehaviour
         //Shoot();
         ChangeWeapon();
         Explosion();
-        Dash();
+      //  Dash();
         OnYandereSimCodeLMAO();
     }
 
@@ -81,6 +89,10 @@ public class Player : MonoBehaviour
             movementDirection = new Vector2(moveInputX, moveInputY);
             movementDirection.Normalize();
             rb.velocity = movementDirection * speed;
+        }
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            DashingAbility();
         }
         // Debug.Log(rb.velocity.magnitude);
 
@@ -102,6 +114,31 @@ public class Player : MonoBehaviour
          }*/
 
         //rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), Mathf.Clamp(rb.velocity.y, -speed, speed));
+    }
+
+    private void DashingAbility()
+    {
+        if(canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        float initialSpeed = this.speed;
+        this.speed = dashSpeed;
+        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(dashTime);
+        this.speed = initialSpeed;
+        yield return new WaitForSeconds(timeBtwDashes);
+        canDash = true;
+
     }
 
     public void TakeDamage(int damage)
@@ -158,7 +195,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Dash()
+   /* private void Dash()
     {
         
           /* if(direction==0)
@@ -172,7 +209,8 @@ public class Player : MonoBehaviour
                 direction = 2;
             }
             else if(moveInputY )
-        }*/
+        }
+        }
         
             if (timeBtwDashes <= 0)
             {
@@ -202,5 +240,5 @@ public class Player : MonoBehaviour
             }
         }
        
-    }
+    }*/
 }
