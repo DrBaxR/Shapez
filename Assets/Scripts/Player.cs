@@ -195,50 +195,55 @@ public class Player : MonoBehaviour
         }
     }
 
-   /* private void Dash()
-    {
-        
-          /* if(direction==0)
-        {
-            if(moveInputX < 0)
-            {
-                direction = 1;
-            }
-            else if(moveInputX > 0)
-            {
-                direction = 2;
-            }
-            else if(moveInputY )
-        }
-        }
-        
-            if (timeBtwDashes <= 0)
-            {
-                canDash = true;
+    /* private void Dash()
+     {
 
-            rb.velocity = Vector2.zero;
-                
-                
-            }
-            else
-            {
-                timeBtwDashes -= Time.deltaTime;
-            }
-        
-        if(canDash)
-        {
-            if(Input.GetKeyDown(KeyCode.LeftShift))
-            {
-               // rb.velocity = Vector2.zero;
-                timeBtwDashes = startTimeBtwDashes;
-                Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
-                // direction = direction.normalized;
-                //direction = direction.normalized;
-                rb.velocity = direction * dashSpeed;
-                rb.AddForce(direction * dashSpeed);
-                canDash = false;
-            }
-        }
-       
-    }*/
+           /* if(direction==0)
+         {
+             if(moveInputX < 0)
+             {
+                 direction = 1;
+             }
+             else if(moveInputX > 0)
+             {
+                 direction = 2;
+             }
+             else if(moveInputY )
+         }
+         }
+
+             if (timeBtwDashes <= 0)
+             {
+                 canDash = true;
+
+             rb.velocity = Vector2.zero;
+
+
+             }
+             else
+             {
+                 timeBtwDashes -= Time.deltaTime;
+             }
+
+         if(canDash)
+         {
+             if(Input.GetKeyDown(KeyCode.LeftShift))
+             {
+                // rb.velocity = Vector2.zero;
+                 timeBtwDashes = startTimeBtwDashes;
+                 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+                 // direction = direction.normalized;
+                 //direction = direction.normalized;
+                 rb.velocity = direction * dashSpeed;
+                 rb.AddForce(direction * dashSpeed);
+                 canDash = false;
+             }
+         }
+
+     }*/
+
+    public void Heal(int amount)
+    {
+        health += amount;
+    }
 }
