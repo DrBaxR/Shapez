@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     private Vector2 movementDirection;
     private Rigidbody2D rb;
-    private Renderer sr;
+    private SpriteRenderer sr;
     private GameManager gm;
 
     private bool pcMovement;
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 #endif
 
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<Renderer>();
+        sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         currentWeapon = inventory[0];
@@ -77,6 +77,8 @@ public class Player : MonoBehaviour
         Explosion();
       //  Dash();
         OnYandereSimCodeLMAO();
+      
+        dashVFX.GetComponent<ParticleSystem>().textureSheetAnimation.SetSprite(0, sr.sprite);
     }
 
     private void FixedUpdate()
@@ -129,11 +131,11 @@ public class Player : MonoBehaviour
         canDash = false;
         float initialSpeed = this.speed;
         this.speed = dashSpeed;
-        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        Instantiate(dashVFX, this.transform.position, transform.rotation);
         yield return new WaitForSeconds(0.05f);
-        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        Instantiate(dashVFX, this.transform.position, transform.rotation);
         yield return new WaitForSeconds(0.05f);
-        Instantiate(dashVFX, this.transform.position, Quaternion.identity);
+        Instantiate(dashVFX, this.transform.position, transform.rotation);
         yield return new WaitForSeconds(dashTime);
         this.speed = initialSpeed;
         yield return new WaitForSeconds(timeBtwDashes);

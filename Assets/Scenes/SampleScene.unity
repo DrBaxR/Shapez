@@ -2802,12 +2802,12 @@ PrefabInstance:
     - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
         type: 3}
       propertyPath: timeBtwDashes
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
         type: 3}
       propertyPath: dashTime
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
         type: 3}
