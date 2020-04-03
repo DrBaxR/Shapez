@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFXs:
   - {fileID: 2775556417291100520, guid: ba8a60b470cf7c74f9ea714b557736d8, type: 3}
+  - {fileID: 7745164209886547618, guid: abec303866660b14c9da6ddb49b57f24, type: 3}
   - {fileID: 2371968587645362028, guid: 256d0c2bbb98a3947bd8cf4d0f2d1c85, type: 3}
+  - {fileID: 5496882960899112753, guid: 878305f89dc60ab40a2a495d9e0ec0f1, type: 3}

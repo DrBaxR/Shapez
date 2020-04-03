@@ -16,7 +16,9 @@ public class FollowingEnemy : Enemies
         /*sr = GetComponent<SpriteRenderer>();
         Initialization();*/
         sr = GetComponent<SpriteRenderer>();
+        sr.material.color = Color.blue;
         Initialization();
+       
     }
 
     void Update()

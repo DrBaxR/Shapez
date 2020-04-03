@@ -29,6 +29,7 @@ public class TeleportingTriangleEnemy : Enemies
         /* sr = GetComponent<SpriteRenderer>();
          Initialization();*/
         sr = GetComponent<SpriteRenderer>();
+        sr.material.color = Color.cyan;
         Initialization();
 
     }
