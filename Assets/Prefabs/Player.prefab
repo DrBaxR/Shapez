@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7412922178205291876}
   - component: {fileID: 7412922178205291879}
   - component: {fileID: 404522833}
+  - component: {fileID: 976169733}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -108,16 +109,20 @@ MonoBehaviour:
   range: 8
   damage: 1
   health: 10
+  maxHealth: 10
   explosion: {fileID: 159224358740606348}
   explVFX: {fileID: 2289531826347975824, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
+  healthBar: {fileID: 0}
+  skillManager: {fileID: 0}
+  isDamageable: 0
   inventory:
   - {fileID: 11400000, guid: a00e8b4a96ed0274394a0026b82b83a7, type: 2}
   - {fileID: 11400000, guid: 3dd05b011fdb57a4eb33e95ca6125c65, type: 2}
   - {fileID: 11400000, guid: a46333fa2ad701a49bcec7d362b5496e, type: 2}
   - {fileID: 11400000, guid: b0b040b6a497c5247a40cfd5612028aa, type: 2}
-  timeBtwDashes: 5
-  dashSpeed: 50
-  dashTime: 0
+  timeBtwDashes: 0.1
+  dashSpeed: 30
+  dashTime: 0.2
   dashVFX: {fileID: 5534768696764074242, guid: 263e59bf2446b094fad73131e06b5451, type: 3}
 --- !u!50 &7412922178205291864
 Rigidbody2D:
@@ -200,6 +205,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.9
+--- !u!114 &976169733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412922178205291865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3caa1493e94749f4eabe73860aa6a6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7412922178268717051
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     public GameObject randomWaveSpawner;
     public Text counter;
     public TextMeshProUGUI scorelText;
+    public Image healthBar;
     private float startTime;
-
+    private Player player;
     private static float incrementCooldown = 15.0f;
     private static int scorelIncrement = 10;
     public static int scorel = 0;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         startTime = Time.time;
         randomWaveSpawner.SetActive(false);
         nextIncrement = incrementCooldown;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
         counter.text = minutes + ":" + seconds;
 
         scorelText.text = "Score: " + scorel;
+
+        // healthBar.fillAmount = player.GetHealthRatio();
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, player.GetHealthRatio(), 5f * Time.deltaTime);
     }
 
     private void UpdateScore()
@@ -63,5 +68,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+   
 
 }

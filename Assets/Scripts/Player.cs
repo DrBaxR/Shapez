@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class Player : MonoBehaviour
     public float range;
     public int damage;
     public int health;
+    public int maxHealth;
     public Transform explosion;
     public GameObject explVFX;
+    public Image healthBar;
 
     public SkillManager skillManager; 
     private float moveInputX;
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour
 
         currentWeapon = inventory[0];
         isDamageable = true;
+        health = maxHealth;
         //canDash = false;
         // startTimeBtwDashes = timeBtwDashes;
     }
@@ -150,6 +154,7 @@ public class Player : MonoBehaviour
     {
         if(isDamageable)
         this.health -= damage;
+        
     }
 
     private void MoveOnPcAndEditor()
@@ -287,5 +292,10 @@ public class Player : MonoBehaviour
     public void Heal(int amount)
     {
         health += amount;
+    }
+    
+    public float GetHealthRatio()
+    {
+        return (float)((float)health) / ((float)maxHealth);
     }
 }
