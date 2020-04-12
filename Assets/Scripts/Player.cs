@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Transform explosion;
     public GameObject explVFX;
 
-  
+    public SkillManager skillManager; 
     private float moveInputX;
     private float moveInputY;
  //   private float startTimeBtwDashes;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     private bool pcMovement;
     private bool otherMovement;
+    public bool isDamageable;
     //private bool canDash;
 
     private int direction;
@@ -60,21 +61,23 @@ public class Player : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         currentWeapon = inventory[0];
+        isDamageable = true;
         //canDash = false;
-       // startTimeBtwDashes = timeBtwDashes;
+        // startTimeBtwDashes = timeBtwDashes;
     }
 
     private void Update()
     {
-        Color c = sr.material.color;
-        c.a = 0.5f;
-        sr.material.color = c;
+       // Color c = sr.material.color;
+       // c.a = 0.5f;
+       // sr.material.color = c;
         /*  c.a = 1f;
           sr.material.color = c;*/
 
         //Shoot();
         ChangeWeapon();
         Explosion();
+        Invulnerability();
       //  Dash();
         OnYandereSimCodeLMAO();
       
@@ -145,6 +148,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(isDamageable)
         this.health -= damage;
     }
 
@@ -175,6 +179,42 @@ public class Player : MonoBehaviour
             nextShot += currentWeapon.cooldown;
             currentWeapon.Shoot(transform);
         }
+    }
+
+
+    private void Invulnerability()
+    {
+        if(Input.GetKeyDown(KeyCode.X) && skillManager.skills[1].isReady)
+        {
+            StartCoroutine(InvulnerabilitySkill());
+            skillManager.skills[1].isReady = false;
+            skillManager.skills[1].currentCoolDown = 0;
+        }
+    }
+
+    private IEnumerator InvulnerabilitySkill()
+    {
+        isDamageable = false;
+        Color auxiliary = sr.material.color;
+        sr.material.color = Color.yellow;
+        yield return new WaitForSeconds(skillManager.skills[1].GetComponent<InvulnerabilitySkill>().duration);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = auxiliary;
+        isDamageable = true;
+
     }
 
     private void Explosion()

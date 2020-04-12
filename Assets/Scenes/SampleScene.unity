@@ -1953,6 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills:
   - {fileID: -7273654961572272197, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
+  - {fileID: 3363500804749519990, guid: 62342405314019943b47b00e513f378c, type: 3}
   explosionIcon: {fileID: 816554476}
   explosionCooldownText: {fileID: 443745785}
 --- !u!4 &1837645061
@@ -2815,6 +2816,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5534768696764074242, guid: 263e59bf2446b094fad73131e06b5451,
         type: 3}
+    - target: {fileID: 7412922178205291867, guid: a92f1cdb464099f47b70e243d0976f92,
+        type: 3}
+      propertyPath: skillManager
+      value: 
+      objectReference: {fileID: 1837645060}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92f1cdb464099f47b70e243d0976f92, type: 3}
 --- !u!1001 &8259887105904534416

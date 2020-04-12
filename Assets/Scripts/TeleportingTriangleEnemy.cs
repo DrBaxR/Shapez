@@ -132,7 +132,7 @@ public class TeleportingTriangleEnemy : Enemies
 
         if (collision.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().TakeDamage(this.DealDamage(this.damage)); 
         }
         else if (this.tag == "TriangleEnemy")
         {

@@ -28,6 +28,14 @@ public class SkillManager : MonoBehaviour
                 
             }
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if(skills[1].currentCoolDown >= skills[1].coolDown)
+            {
+                skills[1].isReady = true;
+                
+            }
+        }
        /* if(!skills[0].isReady)
         {
             skills[0].currentCoolDown = 0;
@@ -36,7 +44,7 @@ public class SkillManager : MonoBehaviour
 
     void Update()
     {
-        foreach(ActiveSkills s in skills)
+        /*(foreach(ActiveSkills s in skills)
         {
             if(s.currentCoolDown<s.coolDown)
             {
@@ -46,7 +54,19 @@ public class SkillManager : MonoBehaviour
                 //s.skillIcon.fillAmount = s.currentCoolDown / s.coolDown;
                 explosionIcon.fillAmount = s.currentCoolDown / s.coolDown;
                 explosionCooldownText.text = ((int)timer % 60).ToString();
-;            }
+           }*/
+        if(skills[0].currentCoolDown<skills[0].coolDown)
+        {
+            skills[0].isReady = false;
+            skills[0].currentCoolDown += Time.deltaTime;
+             explosionIcon.fillAmount = skills[0].currentCoolDown / skills[0].coolDown;
+            explosionCooldownText.text = ((int)timer % 60).ToString();
+        }
+        if (skills[1].currentCoolDown < skills[1].coolDown)
+        {
+            skills[1].isReady = false;
+            skills[1].currentCoolDown += Time.deltaTime;
+            
         }
     }
 }
