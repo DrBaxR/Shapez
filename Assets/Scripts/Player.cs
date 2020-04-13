@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(isDamageable)
+        if(isDamageable == true)
         this.health -= damage;
         
     }

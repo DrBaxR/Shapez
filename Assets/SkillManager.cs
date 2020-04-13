@@ -7,12 +7,14 @@ public class SkillManager : MonoBehaviour
 {
     public List<ActiveSkills> skills;
     public Image explosionIcon;
+    public Image invulnerabilityIcon;
     public Text explosionCooldownText;
     private float timer;
+    private Player player;
     // Start is called before the first frame update
     void Start()
     {
-       
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -62,11 +64,17 @@ public class SkillManager : MonoBehaviour
              explosionIcon.fillAmount = skills[0].currentCoolDown / skills[0].coolDown;
             explosionCooldownText.text = ((int)timer % 60).ToString();
         }
-        if (skills[1].currentCoolDown < skills[1].coolDown)
+        if (skills[1].currentCoolDown < skills[1].coolDown && player.isDamageable)
         {
             skills[1].isReady = false;
             skills[1].currentCoolDown += Time.deltaTime;
-            
+            invulnerabilityIcon.fillAmount = skills[1].currentCoolDown / skills[1].coolDown;
+
+
+        }
+        else if (!player.isDamageable)
+        {
+            invulnerabilityIcon.fillAmount = 0;
         }
     }
 }

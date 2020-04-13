@@ -37,7 +37,7 @@ public class FollowingEnemy : Enemies
         }
        else if (collision.CompareTag("Player"))
         {
-            player.health = this.DealDamage(player.health);
+            player.TakeDamage(this.DealDamage(player.health));
             Destroy(gameObject);
         }
         else if (this.tag == "TriangleEnemy")
