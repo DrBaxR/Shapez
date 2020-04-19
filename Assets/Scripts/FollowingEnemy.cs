@@ -35,9 +35,13 @@ public class FollowingEnemy : Enemies
         {
             Destroy(gameObject);
         }
-       else if (collision.CompareTag("Player"))
+        else if (collision.tag == "Laser")
         {
-            player.TakeDamage(this.DealDamage(player.health));
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            player.TakeDamage(this.damage);
             Destroy(gameObject);
         }
         else if (this.tag == "TriangleEnemy")
@@ -88,6 +92,7 @@ public class FollowingEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
+       
        
 
         /*if (collision.CompareTag("ExplosionParticle"))

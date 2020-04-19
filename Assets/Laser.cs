@@ -8,7 +8,8 @@ public class Laser : MonoBehaviour
     public Transform hitPoint;
 
     private LineRenderer laser;
-    
+   private CapsuleCollider2D capsuleCollider;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -16,51 +17,60 @@ public class Laser : MonoBehaviour
         laser = GetComponent<LineRenderer>();
         laser.enabled = false;
         laser.useWorldSpace = true;
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, hitPoint.position);
-        if(hit)
-        {
-            Debug.Log(hit.transform.tag);
-        }
+       
         laser.SetPosition(0, this.transform.position);
         laser.SetPosition(1, hitPoint.transform.position);
         if (Input.GetKey(KeyCode.R))
         {
-            StartCoroutine(LaserShot(hit));
+            StartCoroutine(LaserShot());
         }
-      
+        
+
+
     }
 
-    private IEnumerator LaserShot(RaycastHit2D hit)
+    private IEnumerator LaserShot()
+
     {
+        capsuleCollider.enabled = true;
+        capsuleCollider.size = new Vector2(0.5f, Vector2.Distance(hitPoint.position, this.transform.position));
 
+       // var hits = Physics2D.RaycastAll(this.transform.position, transform.up);
+      
 
         laser.enabled = true;
-        if (hit)
-        {
-            if (hit.transform.tag!="Player")
+
+        /*foreach (RaycastHit2D hit in hits)
+            if (hit && hit.transform.tag != "Player")
             {
                 Destroy(hit.collider.gameObject);
-            }
-        }
+            }*/
+
         yield return new WaitForSeconds(2f);
+        capsuleCollider.enabled = false;
         laser.enabled = false;
+        //hits = Physics2D.RaycastAll(this.transform.position, transform.up);
+
         yield return new WaitForSeconds(2f);
         laser.enabled = true;
-        if (hit)
-        {
-            if (hit.transform.tag!="Player")
+       /* foreach (RaycastHit2D hit in hits)
+            if (hit && hit.transform.tag != "Player")
             {
                 Destroy(hit.collider.gameObject);
-            }
-        }
+            }*/
+
         yield return new WaitForSeconds(2f);
+        capsuleCollider.enabled = false;
         laser.enabled = false;
+        
 
     }
+
 }

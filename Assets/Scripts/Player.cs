@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
         this.speed = initialSpeed;
         yield return new WaitForSeconds(timeBtwDashes);
         canDash = true;
-
+        
     }
 
     public void TakeDamage(int damage)

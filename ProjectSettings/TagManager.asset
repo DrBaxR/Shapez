@@ -21,6 +21,7 @@ TagManager:
   - GameManager
   - TriangleProjectileEnemy
   - TriangleProjectileEnemuy
+  - Laser
   layers:
   - Default
   - TransparentFX

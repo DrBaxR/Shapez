@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowTarget : MonoBehaviour
+public class FollowParent : MonoBehaviour
 {
     public Transform target;
     public float xPos;
@@ -11,6 +11,6 @@ public class FollowTarget : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position - new Vector3(xPos, yPos, zPos), 20f);
+        transform.position = Vector3.Lerp(transform.position, target.position - new Vector3(xPos,yPos,zPos), 20f);
     }
 }
