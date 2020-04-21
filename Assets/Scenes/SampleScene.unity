@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 340677935}
   - component: {fileID: 340677936}
   - component: {fileID: 340677937}
+  - component: {fileID: 340677938}
   m_Layer: 0
   m_Name: Laser1
   m_TagString: Laser
@@ -730,7 +731,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340677931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 567fcae2e22fdcb46b46eda1b61c4e2e, type: 3}
   m_Name: 
@@ -739,21 +740,37 @@ MonoBehaviour:
   xPos: 0
   yPos: -0.8
   zPos: 0
---- !u!70 &340677937
+--- !u!114 &340677937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340677931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf12afc771fda646ad9338c75c6a087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1436115667}
+  xPos: 0
+  yPos: 0.8
+  zPos: 0
+--- !u!70 &340677938
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340677931}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.4, y: 0.4}
+  m_Offset: {x: 0, y: -0.8}
+  m_Size: {x: 0.0001, y: 0.0001}
   m_Direction: 0
 --- !u!4 &351917083 stripped
 Transform:
@@ -1489,6 +1506,152 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &702843737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702843740}
+  - component: {fileID: 702843739}
+  - component: {fileID: 702843738}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &702843738
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702843737}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0.98538685
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &702843739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702843737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39932608a57d45f43b6191beb9de7786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserClip:
+  - {fileID: 8300000, guid: 13fb8a5937948b847abdb275c6b50f87, type: 3}
+  - {fileID: 8300000, guid: 524aea23fdef8eb45bc89ea5c6988e0c, type: 3}
+  - {fileID: 8300000, guid: 91a61afc77392bc439c056249fb57afd, type: 3}
+  deathSound:
+  - {fileID: 8300000, guid: 31bb9b45f8af169499e4175fcb830611, type: 3}
+--- !u!4 &702843740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702843737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.73, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714933963
 GameObject:
@@ -2791,7 +2954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1438288292
 Transform:
   m_ObjectHideFlags: 0
@@ -2819,7 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1809840769}
-  xPos: -11.1
+  xPos: -10.3
   yPos: 0
   zPos: 0
 --- !u!114 &1438288294
@@ -2834,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0f60942ec56414ea48af272a82fdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatPosX: -10.3
+  whatPosX: 0
   whatPosY: 0
 --- !u!114 &1451348972 stripped
 MonoBehaviour:
@@ -2894,7 +3057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 340677932}
   xPos: 0
-  yPos: -10.3
+  yPos: 10.3
   zPos: 0
 --- !u!114 &1460561964
 MonoBehaviour:
@@ -3003,7 +3166,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1494586344
 Transform:
   m_ObjectHideFlags: 0
@@ -3743,13 +3906,15 @@ GameObject:
   - component: {fileID: 1809840770}
   - component: {fileID: 1809840772}
   - component: {fileID: 1809840773}
+  - component: {fileID: 1809840775}
+  - component: {fileID: 1809840774}
   m_Layer: 0
   m_Name: Laser2
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1809840769
 Transform:
   m_ObjectHideFlags: 0
@@ -3895,15 +4060,47 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809840768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 567fcae2e22fdcb46b46eda1b61c4e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1436115667}
+  xPos: 0.8
+  yPos: 0
+  zPos: 0
+--- !u!114 &1809840774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809840768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf12afc771fda646ad9338c75c6a087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1436115667}
   xPos: -0.8
   yPos: 0
   zPos: 0
+--- !u!70 &1809840775
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809840768}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.8, y: 0}
+  m_Size: {x: 0.0001, y: 0.0001}
+  m_Direction: 1
 --- !u!1 &1812855179
 GameObject:
   m_ObjectHideFlags: 0

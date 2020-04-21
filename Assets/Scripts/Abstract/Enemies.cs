@@ -19,6 +19,8 @@ public abstract class Enemies : MonoBehaviour
 
     protected GameObject deathVFX;
 
+    protected AudioManager audioManager;
+
     private float time=0f;
 
 
@@ -63,6 +65,7 @@ public abstract class Enemies : MonoBehaviour
         if (health <= 0)
         {
             GameManager.scorel += scorePoints;
+            audioManager.PlaySound("deathSound");
             Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -73,8 +76,9 @@ public abstract class Enemies : MonoBehaviour
   {
       int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
         //will remove this variable soon
-        
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
       sr.sprite = esc.enemySprites[randomIndex];
+     
       
       if (randomIndex == 0)
       {

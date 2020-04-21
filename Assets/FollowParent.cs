@@ -11,6 +11,6 @@ public class FollowParent : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position - new Vector3(xPos,yPos,zPos), 20f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + xPos,target.position.y + yPos,target.position.z + zPos), 20f);
     }
 }

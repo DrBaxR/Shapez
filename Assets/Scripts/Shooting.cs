@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     public GameObject expVFX;
 
     private SkillManager skillManager;
+    private AudioManager audioManager;
     //private float coolDown;
     //public float nextExplosionCooldown;
 
@@ -21,6 +22,7 @@ public class Shooting : MonoBehaviour
     {
         //  explosionSkill = expVFX.gameObject.GetComponent<Explosion>();
         skillManager = GameObject.FindGameObjectWithTag("SkillManager").GetComponent<SkillManager>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             daniel.Shoot(this.transform);
+            audioManager.PlaySound("laserSound");
            // daniel.projectile.GetComponent<Projectile>();
             /*Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
             direction = direction.normalized;

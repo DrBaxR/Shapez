@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Player player;
     private Vector2 initialPos;
+    
     // Start is called before the first frame update
     void Start()
     {
