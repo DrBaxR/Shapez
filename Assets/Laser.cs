@@ -8,7 +8,7 @@ public class Laser : MonoBehaviour
     public Transform hitPoint;
 
     private LineRenderer laser;
-   private CapsuleCollider2D capsuleCollider;
+    private CapsuleCollider2D capsuleCollider;
   
 
     // Start is called before the first frame update
@@ -17,12 +17,12 @@ public class Laser : MonoBehaviour
         laser = GetComponent<LineRenderer>();
         laser.enabled = false;
         laser.useWorldSpace = true;
-       capsuleCollider = GetComponent<CapsuleCollider2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
        
         laser.SetPosition(0, this.transform.position);
