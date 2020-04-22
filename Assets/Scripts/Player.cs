@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private float nextShot = 0.0f;
 
     private Weapon currentWeapon;
+    private ChainLightning chainLightning;
 
     [Header("Dashing")]
     public float timeBtwDashes;
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        chainLightning = GetComponentInChildren<ChainLightning>();
 
         currentWeapon = inventory[0];
         isDamageable = true;
@@ -102,6 +104,10 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             DashingAbility();
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine(chainLightning.ChainLightningSkill());
         }
         // Debug.Log(rb.velocity.magnitude);
 
