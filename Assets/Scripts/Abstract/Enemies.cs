@@ -22,6 +22,7 @@ public abstract class Enemies : MonoBehaviour
     protected AudioManager audioManager;
 
     private float time=0f;
+    public bool canMove;
 
 
     private void Start()

@@ -18,12 +18,14 @@ public class FollowingEnemy : Enemies
         sr = GetComponent<SpriteRenderer>();
         sr.material.color = Color.blue;
         Initialization();
+        canMove = true;
        
     }
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if (canMove)
+        { transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); }
         CheckForDeath();
         IncreaseAttributes(2, 2);
     }
