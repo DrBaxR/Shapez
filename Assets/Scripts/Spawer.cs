@@ -20,9 +20,10 @@ public class Spawer : MonoBehaviour
         {
             
             int index = Random.Range(0, waves.Length);
+            int indexEnemy = Random.Range(0, waves[index].enemy.Count);            
             for (int i = 0; i < waves[index].waypoints.Count; i++)
             {
-                Instantiate(waves[index].enemy, waves[index].waypoints[i].transform.position, Quaternion.identity);
+                Instantiate(waves[index].enemy[indexEnemy], waves[index].waypoints[i].transform.position, Quaternion.identity);
             }
             timeBtwSpawns = startTimeBtwSpawns;
         }

@@ -41,6 +41,10 @@ public class FollowingEnemy : Enemies
         {
             Destroy(gameObject);
         }
+       else if (collision.tag.Contains("Enemy"))
+        {
+            return;
+        }
         else if (collision.CompareTag("Player"))
         {
             player.TakeDamage(this.damage);
@@ -94,7 +98,8 @@ public class FollowingEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
-       
+
+     
        
 
         /*if (collision.CompareTag("ExplosionParticle"))
