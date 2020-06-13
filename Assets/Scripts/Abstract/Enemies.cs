@@ -61,11 +61,12 @@ public abstract class Enemies : MonoBehaviour
         this.health -= damage;
     }
 
-    protected void CheckForDeath()
+    protected void CheckForDeath(float experience)
     {
         if (health <= 0)
         {
             GameManager.scorel += scorePoints;
+            LevelSystem.UpdateExperience(experience);
             audioManager.PlaySound("deathSound");
             Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);

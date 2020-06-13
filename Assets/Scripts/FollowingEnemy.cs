@@ -26,7 +26,7 @@ public class FollowingEnemy : Enemies
     {
         if (canMove)
         { transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); }
-        CheckForDeath();
+        CheckForDeath(10f);
         IncreaseAttributes(2, 2);
     }
 
@@ -98,6 +98,7 @@ public class FollowingEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
+       
 
      
        

@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         //Shoot();
         ChangeWeapon();
         Explosion();
-        Invulnerability();
+       // Invulnerability();
       //  Dash();
         OnYandereSimCodeLMAO();
       
@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = currentWeapon.sprite;
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         if (Input.GetMouseButtonDown(0) && Time.time >= nextShot)
         {
@@ -193,14 +193,14 @@ public class Player : MonoBehaviour
     }
 
 
-    private void Invulnerability()
+    public void Invulnerability()
     {
-        if(Input.GetKeyDown(KeyCode.X) && skillManager.skills[1].isReady)
-        {
-            StartCoroutine(InvulnerabilitySkill());
+        //if(Input.GetKeyDown(KeyCode.X) && skillManager.skills[1].isReady)
+        //{
+            this.StartCoroutine(InvulnerabilitySkill());
             skillManager.skills[1].isReady = false;
             skillManager.skills[1].currentCoolDown = 0;
-        }
+        //}
     }
 
     private IEnumerator InvulnerabilitySkill()

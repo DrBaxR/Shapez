@@ -39,7 +39,7 @@ public class TeleportingTriangleEnemy : Enemies
     {
         Move();
         Teleport();
-        CheckForDeath();
+        CheckForDeath(50f);
 
     }
 

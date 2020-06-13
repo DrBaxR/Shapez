@@ -54,7 +54,7 @@ public class MultiplyingEnemy : Enemies
         else { timeBtwSpawns -= Time.deltaTime; }
         time -= Time.deltaTime;
        // print(time);
-        CheckForDeath();
+        CheckForDeath(30f);
     }
     private IEnumerator SpawnClones()
     {

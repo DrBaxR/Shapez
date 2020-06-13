@@ -37,7 +37,7 @@ public class ShootingEnemy : Enemies
     {
         Movement();
         Shooting();
-        CheckForDeath();
+        CheckForDeath(20f);
     }
 
     private void Movement()
