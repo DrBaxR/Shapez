@@ -12,7 +12,7 @@ public class LevelSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("PlayerLevel", 0);
+        //PlayerPrefs.SetInt("PlayerLevel", 0);
         if (PlayerPrefs.GetInt("PlayerLevel") != 0)
         {
             level = PlayerPrefs.GetInt("PlayerLevel");
@@ -27,7 +27,7 @@ public class LevelSystem : MonoBehaviour
     void Update()
     {
         Debug.Log(currentExperience);   
-        RankUp();
+       // RankUp();
     }
 
     public void RankUp()
@@ -37,27 +37,28 @@ public class LevelSystem : MonoBehaviour
 
             level++;
             Debug.Log("Level " + level);
-
+            PlayerPrefs.SetInt("PlayerLevel", level);
             UpdateRequiredExperience();
 
-            currentExperience = 0;
-            PlayerPrefs.SetInt("PlayerLevel", level);
+           // currentExperience = 0;
+            
         }
     }
 
-    private void UpdateRequiredExperience()
+    public void UpdateRequiredExperience()
     {
         for (int i = 1; i <= level; i++)
         {
             if (i != 1)
             {
-                requiredExperiencePerLevel[i] = requiredExperiencePerLevel[i - 1] + requiredExperiencePerLevel[i - 1] * 10 / 100;
+                requiredExperiencePerLevel[i] = (int)(requiredExperiencePerLevel[i - 1] + requiredExperiencePerLevel[i - 1] * 10 / 100);
             }
             else requiredExperiencePerLevel[i] = 100f;
 
         }
         experienceRequired = requiredExperiencePerLevel[level];
         PlayerPrefs.SetFloat("RequiredExperience", requiredExperiencePerLevel[level]);
+        level = PlayerPrefs.GetInt("PlayerLevel");
     }
 
     public static void UpdateExperience(float experiencePoints)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -245,6 +246,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             gm.UpdateHighScore();
+            SceneManager.LoadScene("GameOver");
         }
     }
 

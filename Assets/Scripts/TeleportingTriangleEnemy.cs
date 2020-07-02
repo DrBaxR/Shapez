@@ -158,6 +158,11 @@ public class TeleportingTriangleEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
+
+        else if (collision.tag == "Laser")
+        {
+            Destroy(gameObject);
+        }
         else if (this.tag == "RhombEnemy")
         {
             if (collision.tag == "RhombProjectile")

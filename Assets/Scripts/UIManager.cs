@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class UIManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        titleMenu.DOAnchorPos(Vector2.zero, 0.5f);
+        //titleMenu.DOAnchorPos(Vector2.zero, 0.5f);
         mainMenu.DOAnchorPos(Vector2.zero, 1f);
         
     }
@@ -19,5 +20,18 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Store()
+    {
+        SceneManager.LoadScene("Store");
+    }
+    public void Game()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    public void Settings()
+    {
+        SceneManager.LoadScene("Settings");
     }
 }

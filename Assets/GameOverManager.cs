@@ -10,6 +10,8 @@ public class GameOverManager : MonoBehaviour
     public Image background;
     public Text experienceText;
     public Text gameOverText;
+    public LevelSystem levelSystem;
+    public int level;
     
 
     private bool putExperience;
@@ -22,7 +24,8 @@ public class GameOverManager : MonoBehaviour
         gameOverText.enabled = false;
         experienceBar.enabled = false;
         background.enabled = false;
-        PlayerPrefs.SetFloat("CurrentExperience", 40);
+        level = PlayerPrefs.GetInt("PlayerLevel");
+        PlayerPrefs.SetFloat("CurrentExperience", 300);
         currentExperience = PlayerPrefs.GetFloat("CurrentExperience");
         requiredExperience = PlayerPrefs.GetFloat("RequiredExperience");
         experienceText.enabled = false;
@@ -30,19 +33,22 @@ public class GameOverManager : MonoBehaviour
         gameOverText.text = "Game Over";
       
         putExperience = false;
-       // experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience, 10f * Time.deltaTime);
+        
+        // experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience, 10f * Time.deltaTime);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // if(putExperience)
         StartCoroutine(GameOverText());
-      // if(putExperience)
-       // experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience,10f * Time.deltaTime);
-        
-       // experienceBar.fillAmount = currentExperience / requiredExperience;
-       
+        // experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience,10f * Time.deltaTime);
+
+        // experienceBar.fillAmount = currentExperience / requiredExperience;
+
+
     }
 
     private IEnumerator GameOverText()
@@ -53,8 +59,58 @@ public class GameOverManager : MonoBehaviour
         background.enabled = true;
         experienceBar.enabled = true;
         experienceText.enabled = true;
-        experienceBar.fillAmount = Mathf.Lerp(  experienceBar.fillAmount, currentExperience / requiredExperience, 2f * Time.deltaTime);
+        //yield return new WaitForSeconds(0.5f);
+        // Progress();
+        do
+        {
+            experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience, 0.2f * Time.deltaTime);
+            //yield return new WaitForSeconds(1f);
+          
+            if (experienceBar.fillAmount == 1)
+            {
+                Debug.Log("Level up");
+                level++;
+                PlayerPrefs.SetInt("PlayerLevel", level);
+                levelSystem.UpdateRequiredExperience();
+                
+
+                if (currentExperience >= requiredExperience)
+                {
+                    
+
+                    experienceBar.fillAmount = 0;
+                    currentExperience = currentExperience - requiredExperience;
+                   //d  levelSystem.RankUp();
+                    requiredExperience = PlayerPrefs.GetFloat("RequiredExperience");
+                    experienceText.text = currentExperience + "/" + requiredExperience;
 
 
+                }
+            }
+        } while (currentExperience <0);
+
+
+
+
+
+
+    }
+
+    private void Progress()
+    {
+        experienceBar.fillAmount = Mathf.Lerp(experienceBar.fillAmount, currentExperience / requiredExperience, 10f * Time.deltaTime);
+        //yield return new WaitForSeconds(1f);
+        if(experienceBar.fillAmount==1)
+        {
+            if(currentExperience>=requiredExperience)
+            {
+                experienceBar.fillAmount = 0;
+            }
+        }
+    }
+
+    private void IncrementProgress()
+    {
+       // targetProgress = experienceBar.fillAmount + 
     }
 }

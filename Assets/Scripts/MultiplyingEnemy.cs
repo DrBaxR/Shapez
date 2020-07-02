@@ -10,8 +10,9 @@ public class MultiplyingEnemy : Enemies
     public float timeBtwSpawns;
     public GameObject enemyPrefab;
     public int numberOfClonedTimes;
-
+    
     private Player player;
+   // private new AudioManager audioManager;
 
     public static float time=0f;
    
@@ -22,6 +23,7 @@ public class MultiplyingEnemy : Enemies
     public static Sprite currentSprite;
     private Transform target;
     private float startTimeBtwSpawns;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class MultiplyingEnemy : Enemies
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         startTimeBtwSpawns = timeBtwSpawns;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         /* sr = GetComponent<SpriteRenderer>();
          Initialization();*/
         sr = GetComponent<SpriteRenderer>();
@@ -44,8 +47,17 @@ public class MultiplyingEnemy : Enemies
     void Update()
     {
        // enemyPrefab.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
+      /* if(health<=0)
+        {
+            GameManager.scorel += scorePoints;
+            LevelSystem.UpdateExperience(30f);
+            this.audioManager.PlaySound("deathSound");
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }*/
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if(timeBtwSpawns<=0)
+        CheckForDeath(30f);
+        if (timeBtwSpawns<=0)
         {
             timeBtwSpawns = startTimeBtwSpawns;
             StartCoroutine(SpawnClones());
@@ -54,7 +66,8 @@ public class MultiplyingEnemy : Enemies
         else { timeBtwSpawns -= Time.deltaTime; }
         time -= Time.deltaTime;
        // print(time);
-        CheckForDeath(30f);
+       
+        
     }
     private IEnumerator SpawnClones()
     {
@@ -152,28 +165,41 @@ public class MultiplyingEnemy : Enemies
 public new void Initialization()
 
 {
-
+      
         if (time<=0f)
         {
             int randomIndex = UnityEngine.Random.Range(0, esc.enemySprites.Count);
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
             sr.sprite = esc.enemySprites[randomIndex];
             int randomIndexVFX = UnityEngine.Random.Range(0, vfxC.deathVFXs.Count);
-            deathVFX = vfxC.deathVFXs[randomIndexVFX];
+            //deathVFX = vfxC.deathVFXs[randomIndexVFX];
             if (randomIndex == 0)
             {
                 gameObject.tag = "SquareEnemy";
+                deathVFX = vfxC.deathVFXs[randomIndex];
+                var main = deathVFX.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.red;
             }
             else if (randomIndex == 1)
             {
                 gameObject.tag = "CircleEnemy";
+                deathVFX = vfxC.deathVFXs[randomIndex];
+                var main = deathVFX.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.red;
             }
             else if (randomIndex == 2)
             {
                 gameObject.tag = "TriangleEnemy";
+                deathVFX = vfxC.deathVFXs[randomIndex];
+                var main = deathVFX.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.red;
             }
             else if (randomIndex == 3)
             {
                 gameObject.tag = "RhombEnemy";
+                deathVFX = vfxC.deathVFXs[randomIndex];
+                var main = deathVFX.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.red;
             }
             //currentSprite = this.sr.sprite;
             time = 30f;
@@ -185,4 +211,18 @@ public new void Initialization()
         }
     
    }
+    protected new void CheckForDeath(float experience)
+    {
+        
+        
+            if (health <= 0)
+            {
+                GameManager.scorel += scorePoints;
+                LevelSystem.UpdateExperience(experience);
+                audioManager.PlaySound("deathSound");
+                Instantiate(deathVFX, this.transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
+        
+    }
 }
