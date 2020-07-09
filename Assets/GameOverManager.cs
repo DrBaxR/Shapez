@@ -25,7 +25,7 @@ public class GameOverManager : MonoBehaviour
         experienceBar.enabled = false;
         background.enabled = false;
         level = PlayerPrefs.GetInt("PlayerLevel");
-        PlayerPrefs.SetFloat("CurrentExperience", 300);
+       // PlayerPrefs.SetFloat("CurrentExperience", 0);
         currentExperience = PlayerPrefs.GetFloat("CurrentExperience");
         requiredExperience = PlayerPrefs.GetFloat("RequiredExperience");
         experienceText.enabled = false;

@@ -65,7 +65,11 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         chainLightning = GetComponentInChildren<ChainLightning>();
-
+        for(int i = 0; i <PlayerPrefs.GetInt("PlayerLevel");i++)
+        {
+            health += 2;
+        }
+        
         currentWeapon = inventory[0];
         isDamageable = true;
         health = maxHealth;
