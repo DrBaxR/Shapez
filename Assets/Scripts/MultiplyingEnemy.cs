@@ -39,6 +39,7 @@ public class MultiplyingEnemy : Enemies
         Initialization();
         sr.material.color = Color.red;
         currentSprite = this.sr.sprite;
+        canMove = true;
         
     }
 
@@ -46,16 +47,17 @@ public class MultiplyingEnemy : Enemies
     // Update is called once per frame
     void Update()
     {
-       // enemyPrefab.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
-      /* if(health<=0)
-        {
-            GameManager.scorel += scorePoints;
-            LevelSystem.UpdateExperience(30f);
-            this.audioManager.PlaySound("deathSound");
-            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-        }*/
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        // enemyPrefab.GetComponent<SpriteRenderer>().sprite = this.sr.sprite;
+        /* if(health<=0)
+          {
+              GameManager.scorel += scorePoints;
+              LevelSystem.UpdateExperience(30f);
+              this.audioManager.PlaySound("deathSound");
+              Instantiate(deathVFX, this.transform.position, Quaternion.identity);
+              Destroy(this.gameObject);
+          }*/
+        if (canMove) { 
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); }
         CheckForDeath(30f);
         if (timeBtwSpawns<=0)
         {
@@ -105,13 +107,23 @@ public class MultiplyingEnemy : Enemies
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().health = this.DealDamage(this.damage);
         }*/
 
-
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("ExplosionParticle"))
         {
-            player.health = this.DealDamage(player.health);
             Destroy(gameObject);
         }
-
+        else if (collision.tag == "Laser")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.tag.Contains("Enemy"))
+        {
+            return;
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            player.TakeDamage(this.damage);
+            Destroy(gameObject);
+        }
         else if (this.tag == "TriangleEnemy")
         {
             if (collision.tag == "TriangleProjectile")
@@ -119,7 +131,7 @@ public class MultiplyingEnemy : Enemies
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
-            else if (collision.tag.Contains("Projectile") && !collision.tag.Contains("Enemy"))
+            else
             {
                 Destroy(collision.gameObject);
             }
@@ -131,7 +143,7 @@ public class MultiplyingEnemy : Enemies
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
-            else if(collision.tag.Contains("Projectile") && !collision.tag.Contains("Enemy"))
+            else
             {
                 Destroy(collision.gameObject);
             }
@@ -143,7 +155,7 @@ public class MultiplyingEnemy : Enemies
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
-            else if (collision.tag.Contains("Projectile") && !collision.tag.Contains("Enemy"))
+            else
             {
                 Destroy(collision.gameObject);
             }
@@ -155,14 +167,15 @@ public class MultiplyingEnemy : Enemies
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }
-            else if (collision.tag.Contains("Projectile") && !collision.tag.Contains("Enemy"))
+            else
             {
                 Destroy(collision.gameObject);
             }
         }
-        
+
+
     }
-public new void Initialization()
+    public new void Initialization()
 
 {
       

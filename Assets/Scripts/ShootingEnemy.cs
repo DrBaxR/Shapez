@@ -21,6 +21,7 @@ public class ShootingEnemy : Enemies
     {
         sr= GetComponent<SpriteRenderer>();
         Initialization();
+        InitShape();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         initCooldown = shootCooldown;
@@ -29,7 +30,8 @@ public class ShootingEnemy : Enemies
         
         sr.material.color = Color.magenta;
 
-        InitShape();
+        
+        canMove = true;
         
     }
 
@@ -44,7 +46,7 @@ public class ShootingEnemy : Enemies
     {
         float currDist = Vector2.Distance(this.transform.position, target.position);
 
-        Debug.Log(currDist);
+        ///Debug.Log(target.position);
 
         if (currDist > retreatDistance && currDist < followDistance)
         {
@@ -71,12 +73,13 @@ public class ShootingEnemy : Enemies
            
            
             int shots = 0;
-            while (shots < nOfCorners)
-            {
-                shots++;
+           // while (shots < nOfCorners)
+          //  {
+              //  shots++;
                 Instantiate(projectile, transform.position, transform.rotation);
+                print(projectile.transform.position);
                // projectile.gameObject.GetComponent<EnemyProjectile>().SetDir(distance);
-            }
+           // }
 
             shootCooldown = initCooldown;
         }
@@ -115,7 +118,24 @@ public class ShootingEnemy : Enemies
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.tag == "TriangleEnemy")
+        if (collision.CompareTag("ExplosionParticle"))
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.tag == "Laser")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.tag.Contains("Enemy"))
+        {
+            return;
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            player.TakeDamage(this.damage);
+            Destroy(gameObject);
+        }
+        else if (this.tag == "TriangleEnemy")
         {
             if (collision.tag == "TriangleProjectile")
             {
@@ -163,6 +183,7 @@ public class ShootingEnemy : Enemies
                 Destroy(collision.gameObject);
             }
         }
+
     }
 
 }

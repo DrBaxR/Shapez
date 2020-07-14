@@ -74,6 +74,7 @@ public class ChainLightning : MonoBehaviour
 
                     }
                 }*/
+                if(hits!=null)
                 foreach (Collider2D hit in hits)
                 {
                     if (hit.transform.tag.Contains("Enemy") && hit != null)
@@ -95,6 +96,7 @@ public class ChainLightning : MonoBehaviour
 
             }
             yield return new WaitForSeconds(2f);
+            if(hits!=null)
             foreach (Collider2D hit in hits)
             {
                 if (hit.transform.tag.Contains("Enemy") && hit != null)
