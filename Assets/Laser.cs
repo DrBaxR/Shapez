@@ -66,12 +66,15 @@ public class Laser : MonoBehaviour
         //hits = Physics2D.RaycastAll(this.transform.position, transform.up);
 
         yield return new WaitForSeconds(2f);
+        capsuleCollider.enabled = true;
         laser.enabled = true;
-       /* foreach (RaycastHit2D hit in hits)
-            if (hit && hit.transform.tag != "Player")
-            {
-                Destroy(hit.collider.gameObject);
-            }*/
+       
+
+        /* foreach (RaycastHit2D hit in hits)
+             if (hit && hit.transform.tag != "Player")
+             {
+                 Destroy(hit.collider.gameObject);
+             }*/
 
         yield return new WaitForSeconds(2f);
         capsuleCollider.enabled = false;

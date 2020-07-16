@@ -144,6 +144,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private IEnumerator Dash()
     {
         canDash = false;
@@ -159,6 +160,14 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timeBtwDashes);
         canDash = true;
         
+    }
+
+    public void ChainLightning()
+    {
+        this.StartCoroutine(chainLightning.ChainLightningSkill());
+        skillManager.skills[2].isReady = false;
+        skillManager.skills[2].currentCoolDown = 0;
+
     }
 
     public void TakeDamage(int damage)

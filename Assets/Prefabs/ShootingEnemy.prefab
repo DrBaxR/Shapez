@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5705315226885825629
 Transform:
   m_ObjectHideFlags: 0
@@ -46,12 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d46dd17289df648a7e4202e527e618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  timeUntillIncrease: 0
+  health: 2
+  damage: 2
+  timeUntillIncrease: 20
   scorePoints: 5
   speed: 5
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
+  vfxC: {fileID: 11400000, guid: bd4463b4074ee0543a81f53b6bc69e63, type: 2}
+  canMove: 0
   followDistance: 7
   retreatDistance: 5
   shootCooldown: 3

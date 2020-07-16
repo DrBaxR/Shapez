@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChainLightning : MonoBehaviour
 {
 
+    List<Vector3> positions = new List<Vector3>();
     private int curveCount;
     private readonly int numberOfNodes = 50;
     private LineRenderer laser;
@@ -22,13 +23,16 @@ public class ChainLightning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+       
 
     }
 
     public IEnumerator ChainLightningSkill()
     {
 
-        List<Vector3> positions = new List<Vector3>();
+        /* List<Vector3> positions = new List<Vector3>();*/
+        positions = new List<Vector3>();
         Collider2D[] hits = Physics2D.OverlapCircleAll(this.transform.position, 10f);
         if (hits != null)
         {
@@ -55,7 +59,7 @@ public class ChainLightning : MonoBehaviour
              }*/
 
 
-            for (int j = 0; j < hits.Length; j++)
+            for (int j = 0; j < hits.Length-1; j++)
             {
                 DrawQuadraticBezierCurve(positions[j], CalculateTriangle(positions[j], positions[j + 1]), positions[j + 1]);
 
@@ -74,6 +78,7 @@ public class ChainLightning : MonoBehaviour
 
                     }
                 }*/
+                if(hits!=null)
                 foreach (Collider2D hit in hits)
                 {
                     if (hit.transform.tag.Contains("Enemy") && hit != null)
@@ -95,6 +100,7 @@ public class ChainLightning : MonoBehaviour
 
             }
             yield return new WaitForSeconds(2f);
+            if(hits!=null)
             foreach (Collider2D hit in hits)
             {
                 if (hit.transform.tag.Contains("Enemy") && hit != null)

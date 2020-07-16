@@ -25,7 +25,7 @@ public class SkillManager : MonoBehaviour
             if (skills[0].currentCoolDown >= skills[0].coolDown)
             {
                 skills[0].isReady = true;
-                timer = skills[0].coolDown;
+                //timer = skills[0].coolDown;
                 
                 
             }
@@ -36,6 +36,14 @@ public class SkillManager : MonoBehaviour
             {
                 skills[1].isReady = true;
                 
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (skills[2].currentCoolDown >= skills[2].coolDown)
+            {
+                skills[2].isReady = true;
+
             }
         }
        /* if(!skills[0].isReady)
@@ -57,12 +65,12 @@ public class SkillManager : MonoBehaviour
                 explosionIcon.fillAmount = s.currentCoolDown / s.coolDown;
                 explosionCooldownText.text = ((int)timer % 60).ToString();
            }*/
-        if(skills[0].currentCoolDown<skills[0].coolDown)
+        if (skills[0].currentCoolDown < skills[0].coolDown)
         {
             skills[0].isReady = false;
             skills[0].currentCoolDown += Time.deltaTime;
-             explosionIcon.fillAmount = skills[0].currentCoolDown / skills[0].coolDown;
-            explosionCooldownText.text = ((int)timer % 60).ToString();
+            explosionIcon.fillAmount = skills[0].currentCoolDown / skills[0].coolDown;
+            // explosionCooldownText.text = ((int)timer % 60).ToString();
         }
         if (skills[1].currentCoolDown < skills[1].coolDown && player.isDamageable)
         {
@@ -75,6 +83,11 @@ public class SkillManager : MonoBehaviour
         else if (!player.isDamageable)
         {
             invulnerabilityIcon.fillAmount = 0;
+        }
+        if (skills[2].currentCoolDown < skills[2].coolDown)
+        {
+            skills[2].isReady = false;
+            skills[2].currentCoolDown += Time.deltaTime;
         }
     }
 }

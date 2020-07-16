@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1818959687260652162}
   - component: {fileID: -7017310970407115617}
   - component: {fileID: 5142226168072177321}
-  - component: {fileID: -8543426950743483781}
+  - component: {fileID: 4934495983494913210}
   m_Layer: 0
   m_Name: ProjectileRhombEnemy
   m_TagString: RhombProjectileEnemy
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-8543426950743483781
+--- !u!114 &4934495983494913210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5499671392343195361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c70964428456aef499529f7273b27410, type: 3}
+  m_Script: {fileID: 11500000, guid: 89f592fde80e19e489c9bcd4bb2dc4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
