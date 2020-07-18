@@ -45,6 +45,10 @@ public class FollowingEnemy : Enemies
         {
             return;
         }
+       else if(collision.CompareTag("Sentinel"))
+        {
+            Destroy(gameObject);
+        }
         else if (collision.CompareTag("Player"))
         {
             player.TakeDamage(this.damage);

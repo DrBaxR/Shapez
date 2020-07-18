@@ -119,6 +119,10 @@ public class MultiplyingEnemy : Enemies
         {
             return;
         }
+        else if (collision.CompareTag("Sentinel"))
+        {
+            Destroy(gameObject);
+        }
         else if (collision.CompareTag("Player"))
         {
             player.TakeDamage(this.damage);
@@ -175,7 +179,7 @@ public class MultiplyingEnemy : Enemies
 
 
     }
-    public new void Initialization()
+    /*public new void Initialization()
 
 {
       
@@ -223,7 +227,7 @@ public class MultiplyingEnemy : Enemies
            
         }
     
-   }
+   }*/
     protected new void CheckForDeath(float experience)
     {
         

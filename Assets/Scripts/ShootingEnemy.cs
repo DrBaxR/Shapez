@@ -70,16 +70,51 @@ public class ShootingEnemy : Enemies
         if (shootCooldown <= 0)
         {
             //shoot
-           
-           
-            int shots = 0;
-           // while (shots < nOfCorners)
-          //  {
-              //  shots++;
+
+
+            StartCoroutine(ShootingSkill());
+
+            /*if (nOfCorners == 3)
+
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
                 Instantiate(projectile, transform.position, transform.rotation);
                 print(projectile.transform.position);
-               // projectile.gameObject.GetComponent<EnemyProjectile>().SetDir(distance);
-           // }
+            }
+            // projectile.gameObject.GetComponent<EnemyProjectile>().SetDir(distance);
+            if (nOfCorners == 4)
+
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                print(projectile.transform.position);
+            }
+            if (nOfCorners == 4)
+
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                
+                print(projectile.transform.position);
+            }
+            if(nOfCorners==10)
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position, transform.rotation);
+            }*/
 
             shootCooldown = initCooldown;
         }
@@ -184,6 +219,17 @@ public class ShootingEnemy : Enemies
             }
         }
 
+    }
+
+    private IEnumerator ShootingSkill()
+    {
+        int shots = 0;
+        while(shots<nOfCorners)
+        {
+            shots++;
+            Instantiate(projectile, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
 }

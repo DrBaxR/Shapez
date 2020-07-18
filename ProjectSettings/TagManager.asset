@@ -23,6 +23,9 @@ TagManager:
   - TriangleProjectileEnemuy
   - Laser
   - AudioManager
+  - ProjectilePowerup
+  - En
+  - Sentinel
   layers:
   - Default
   - TransparentFX

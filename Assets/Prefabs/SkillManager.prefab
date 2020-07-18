@@ -46,6 +46,7 @@ MonoBehaviour:
   skills:
   - {fileID: -7273654961572272197, guid: d608c9d748d609b4e96c5f669cadbfe1, type: 3}
   - {fileID: 3363500804749519990, guid: 62342405314019943b47b00e513f378c, type: 3}
+  - {fileID: 3363500804749519990, guid: 62342405314019943b47b00e513f378c, type: 3}
   explosionIcon: {fileID: 0}
   invulnerabilityIcon: {fileID: 0}
   explosionCooldownText: {fileID: 0}

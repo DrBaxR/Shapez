@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1818959687260652162}
   - component: {fileID: -7017310970407115617}
   - component: {fileID: 5142226168072177321}
-  - component: {fileID: 8775351902532655175}
+  - component: {fileID: 7289393269400724987}
   m_Layer: 0
-  m_Name: ProjectilePowerup
-  m_TagString: ProjectilePowerup
+  m_Name: SentinelProjectileSquare
+  m_TagString: SquareProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5499671392343195361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.0669, y: -3.6498, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2402568, y: 0.2402568, z: 0.2402568}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 687109022b580f54b857cb66a55eb509, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 321e7e17bca5b7b46947e84bfbe664d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8775351902532655175
+--- !u!114 &7289393269400724987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,17 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5499671392343195361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbe53bd5803b3b41acdea1494056232, type: 3}
+  m_Script: {fileID: 11500000, guid: b13e860b6adaabe4b882673ac14d43ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles:
-  - {fileID: 5499671392343195361, guid: 00fc9756fb199664dbedf61917752dcc, type: 3}
-  - {fileID: 5499671392343195361, guid: 00fc9756fb199664dbedf61917752dcc, type: 3}
-  - {fileID: 5499671392343195361, guid: 00fc9756fb199664dbedf61917752dcc, type: 3}
-  - {fileID: 5499671392343195361, guid: 00fc9756fb199664dbedf61917752dcc, type: 3}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  isActive: 0
+  speed: 10
