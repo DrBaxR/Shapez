@@ -161,6 +161,10 @@ public class ShootingEnemy : Enemies
         {
             Destroy(gameObject);
         }
+        else if(collision.tag == "Sentinel")
+        {
+            Destroy(gameObject);
+        }
         else if (collision.tag.Contains("Enemy"))
         {
             return;
