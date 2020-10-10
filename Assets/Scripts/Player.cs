@@ -207,7 +207,8 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Invulnerability()
+    /* Removing it for the time being 
+     * public void Invulnerability()
     {
         //if(Input.GetKeyDown(KeyCode.X) && skillManager.skills[1].isReady)
         //{
@@ -215,9 +216,9 @@ public class Player : MonoBehaviour
             skillManager.skills[1].isReady = false;
             skillManager.skills[1].currentCoolDown = 0;
         //}
-    }
+    }*/
 
-    private IEnumerator InvulnerabilitySkill()
+    /*private IEnumerator InvulnerabilitySkill()
     {
         isDamageable = false;
         Color auxiliary = sr.material.color;
@@ -240,7 +241,7 @@ public class Player : MonoBehaviour
         sr.material.color = auxiliary;
         isDamageable = true;
 
-    }
+    }*/
 
     private void Explosion()
     {
@@ -251,6 +252,37 @@ public class Player : MonoBehaviour
             if (other.tag != this.gameObject.tag)
                 Destroy(other.gameObject);
         }*/
+    }
+
+
+    public void Invulnerability(float duration)
+    {
+        StartCoroutine(InvulnerabilitySkill(duration));
+    }
+
+    public IEnumerator InvulnerabilitySkill(float duration)
+    {
+        isDamageable = false;
+        Color auxiliary = sr.material.color;
+        sr.material.color = Color.yellow;
+        yield return new WaitForSeconds(duration);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 1f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = new Color(sr.material.color.r, sr.material.color.g, sr.material.color.b, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+        sr.material.color = auxiliary;
+        isDamageable = true;
+
     }
 
     private void OnYandereSimCodeLMAO()

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        randomWaveSpawner.SetActive(false);
+       
         nextIncrement = incrementCooldown;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
@@ -30,11 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateUI();
-        if (Time.time > 60f)
-        {
-            randomWaveSpawner.SetActive(true);
-        }
-
+        
         UpdateScore();
     }
 
