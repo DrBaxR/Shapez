@@ -57,7 +57,9 @@ public class MultiplyingEnemy : Enemies
               Destroy(this.gameObject);
           }*/
         if (canMove) { 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); }
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            DontOverlap();
+        }
         CheckForDeath(30f);
         if (timeBtwSpawns<=0)
         {

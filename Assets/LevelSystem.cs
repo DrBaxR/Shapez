@@ -26,7 +26,7 @@ public class LevelSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentExperience);   
+        //Debug.Log(currentExperience);   
        // RankUp();
     }
 

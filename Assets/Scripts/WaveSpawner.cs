@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 //Buna siua coae
 public class WaveSpawner : MonoBehaviour
 {
@@ -16,11 +19,13 @@ public class WaveSpawner : MonoBehaviour
     public float timeBtwnWaves = 10.0f;
     public int enemiesPerWave = 4;
 
+    public Text waveText;
+
     private Transform[] spawnPoints; //contine toate spawnpoint-urile
     private bool[] used; //informatoa daca indicele i a fost folosit
     private int numSpawnPoints = 0;
     private float nextWave = 0.0f;
-
+    private Animator anim;
     private int numberOfEnemiesRemaining;
     private int numberOfEnemiesPerWave;
     private int numberOfEnemiesInAWave;
@@ -30,6 +35,7 @@ public class WaveSpawner : MonoBehaviour
     private float nextSpawnTime;
     private float spawnInterval;
     private float totalEnemies;
+    private bool canAnimate;
     
 
     void Start()
@@ -41,6 +47,8 @@ public class WaveSpawner : MonoBehaviour
         nextSpawnTime = 0f;
         spawnInterval = 3f;
         totalEnemies = 0;
+        anim = GetComponent<Animator>();
+        canAnimate = false;
         
     }
     void Update()
@@ -70,17 +78,27 @@ public class WaveSpawner : MonoBehaviour
         GameObject[] totalEnemies3 = GameObject.FindGameObjectsWithTag("RhombEnemy");
         GameObject[] totalEnemies4 = GameObject.FindGameObjectsWithTag("CircleEnemy");
        // Debug.Log(totalEnemies);
-        if (!canSpawn && totalEnemies1.Length == 0  && totalEnemies2.Length == 0 && totalEnemies3.Length == 0 && totalEnemies4.Length == 0)
+        if (canAnimate && totalEnemies1.Length == 0  && totalEnemies2.Length == 0 && totalEnemies3.Length == 0 && totalEnemies4.Length == 0)
             {
 
-               
-                currentWaveNumber++;
+
+
+                waveText.text = "Wave : " + currentWaveNumber; 
                 numberOfEnemiesRemaining = enemiesPerWave;
-                canSpawn = true;
+                anim.SetTrigger("WaveComplete");
+                canAnimate = false;
+                
                 Debug.Log(currentWaveNumber);
             }
       
     }
+
+    public void SpawnNextWave()
+    {
+        currentWaveNumber++;
+        canSpawn = true;
+    }
+    
 
     /*private void SpawnWave() //spawneaza un wave de inamici
     {
@@ -124,6 +142,7 @@ public class WaveSpawner : MonoBehaviour
             if(numberOfEnemiesRemaining==0)
             {
                 canSpawn = false;
+                canAnimate = true;
             }
 
         }

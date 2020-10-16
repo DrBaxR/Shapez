@@ -26,35 +26,8 @@ public class FollowingEnemy : Enemies
     {
         if (canMove)
         { transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-             string[] tagsToDisable =
-              {
-                "RhombEnemy",
-                 "SquareEnemy",
-                 "CircleEnemy",
-                 "TriangleEnemy"
-             };
-            foreach (string tag in tagsToDisable)
-            {
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
 
-
-
-
-                foreach (GameObject enemy in enemies)
-                {
-                    if (enemy != null)
-                    {
-                        float currentDistance = Vector2.Distance(transform.position, enemy.transform.position);
-
-                        if (currentDistance < 2.0f)
-                        {
-                            Vector3 dist = transform.position - enemy.transform.position;
-                            transform.position += dist * Time.deltaTime;
-                        }
-                    }
-                }
-            }
-
+            DontOverlap();
         }
         CheckForDeath(10f);
         IncreaseAttributes(2, 2);
