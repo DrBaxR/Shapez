@@ -67,7 +67,8 @@ public class ShootingEnemy : Enemies
 
     private void Shooting()
     {
-        if (shootCooldown <= 0)
+       
+        if (shootCooldown <= 0 && Vector2.Distance(this.transform.position,target.position)<20f)
         {
             //shoot
 
@@ -85,7 +86,7 @@ public class ShootingEnemy : Enemies
             // projectile.gameObject.GetComponent<EnemyProjectile>().SetDir(distance);
             if (nOfCorners == 4)
 
-            {
+            {1.
                 Instantiate(projectile, transform.position, transform.rotation);
                 Instantiate(projectile, transform.position, transform.rotation);
                 Instantiate(projectile, transform.position, transform.rotation);

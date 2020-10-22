@@ -62,8 +62,8 @@ public class TeleportingTriangleEnemy : Enemies
 
     private void Teleport()
     {
-        if (nextTeleport > 5f)
-        {
+        if (nextTeleport > 5f && Vector2.Distance(this.transform.position,target.position)<20f)
+        {                                                                   
             Vector3 randomPos = UnityEngine.Random.insideUnitCircle * (maxRadius - minRadius);
             this.transform.position = target.position + randomPos.normalized * minRadius + randomPos;
             StartCoroutine(SetMoving());
@@ -133,6 +133,11 @@ public class TeleportingTriangleEnemy : Enemies
         if (collision.CompareTag("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().TakeDamage(this.DealDamage(this.damage)); 
+        }
+
+        else if (collision.tag.Contains("Enemy"))
+        {
+            return;
         }
         else if (this.tag == "TriangleEnemy")
         {

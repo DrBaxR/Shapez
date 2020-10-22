@@ -36,19 +36,22 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float totalEnemies;
     private bool canAnimate;
+
+    private Transform player;
     
 
     void Start()
     {
         InitSpawnPoints();
         numberOfEnemiesRemaining = enemiesPerWave;
-        currentWaveNumber = 0;
+        currentWaveNumber = 1;
         canSpawn = true;
         nextSpawnTime = 0f;
         spawnInterval = 3f;
         totalEnemies = 0;
         anim = GetComponent<Animator>();
         canAnimate = false;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         
     }
     void Update()
@@ -125,7 +128,7 @@ public class WaveSpawner : MonoBehaviour
         if(canSpawn && (nextSpawnTime <Time.time))
         {
             int i = 0;
-            while (i < 2 && numberOfEnemiesRemaining!=0)
+            while (i < 4 && numberOfEnemiesRemaining!=0)
             {
                 int index = Random.Range(0, spawnPoints.Length);
                 if (!used[index])
@@ -133,6 +136,11 @@ public class WaveSpawner : MonoBehaviour
                     i++;
                     used[index] = true;
                     int e = Random.Range(0, enemies.enemies.Capacity); //select the enemy to spawn
+                    if(spawnPoints[index].position == player.position)
+                    {
+                        i--;
+                        break;  
+                    }
                     Instantiate(enemies.enemies[e], spawnPoints[index].position, Quaternion.identity);
                     numberOfEnemiesRemaining--;
 
