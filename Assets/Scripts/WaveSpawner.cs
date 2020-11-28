@@ -29,7 +29,8 @@ public class WaveSpawner : MonoBehaviour
     private int numberOfEnemiesRemaining;
     private int numberOfEnemiesPerWave;
     private int numberOfEnemiesInAWave;
-    private int currentWaveNumber;
+    public static int currentWaveNumber;
+    
 
     public bool canSpawn;
     private float nextSpawnTime;
@@ -86,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
 
 
 
-                waveText.text = "Wave : " + currentWaveNumber; 
+                waveText.text = "Wave : " + (currentWaveNumber+1); 
                 numberOfEnemiesRemaining = enemiesPerWave;
                 anim.SetTrigger("WaveComplete");
                 canAnimate = false;

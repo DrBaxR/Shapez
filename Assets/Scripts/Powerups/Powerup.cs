@@ -5,6 +5,12 @@ using UnityEngine;
 public abstract class Powerup : MonoBehaviour
 {
     [SerializeField] protected float duration = 5f;
+    public float rotationSpeed = 2000f;
+
+    private void FixedUpdate()
+    {
+        transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
+    }
 
     protected void DisableUntilDestruction()
     {

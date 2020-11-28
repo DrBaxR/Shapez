@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-       
+        Time.timeScale = 1;
         nextIncrement = incrementCooldown;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
@@ -32,15 +32,17 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         
         UpdateScore();
+
+    
     }
 
     private void UpdateUI()
     {
-        float time = Time.time - startTime;
+        /*float time = Time.time - startTime;
         string minutes = ((int)time / 60).ToString();
         string seconds = ((int)time % 60).ToString("f0");
-        counter.text = minutes + ":" + seconds;
-
+        counter.text = minutes + ":" + seconds;*/
+        counter.text = WaveSpawner.currentWaveNumber.ToString();
         scorelText.text = "Score: " + scorel;
 
         // healthBar.fillAmount = player.GetHealthRatio();

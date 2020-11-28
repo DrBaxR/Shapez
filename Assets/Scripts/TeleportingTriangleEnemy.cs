@@ -31,7 +31,8 @@ public class TeleportingTriangleEnemy : Enemies
         sr = GetComponent<SpriteRenderer>();
         sr.material.color = Color.cyan;
         Initialization();
-
+        var main = deathVFX.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.cyan;
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class TeleportingTriangleEnemy : Enemies
         Move();
         Teleport();
         CheckForDeath(50f);
+        DontOverlap();
 
     }
 
@@ -62,7 +64,7 @@ public class TeleportingTriangleEnemy : Enemies
 
     private void Teleport()
     {
-        if (nextTeleport > 5f && Vector2.Distance(this.transform.position,target.position)<20f)
+        if (nextTeleport > 5f && Vector2.Distance(this.transform.position,target.position)<10f)
         {                                                                   
             Vector3 randomPos = UnityEngine.Random.insideUnitCircle * (maxRadius - minRadius);
             this.transform.position = target.position + randomPos.normalized * minRadius + randomPos;
@@ -135,9 +137,13 @@ public class TeleportingTriangleEnemy : Enemies
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().TakeDamage(this.DealDamage(this.damage)); 
         }
 
-        else if (collision.tag.Contains("Enemy"))
+        else if (collision.tag.Contains("Enemy") || collision.tag.Contains("Pickup"))
         {
             return;
+        }
+        else if (collision.tag == "Laser")
+        {
+            Destroy(gameObject);
         }
         else if (this.tag == "TriangleEnemy")
         {
@@ -164,10 +170,7 @@ public class TeleportingTriangleEnemy : Enemies
             }
         }
 
-        else if (collision.tag == "Laser")
-        {
-            Destroy(gameObject);
-        }
+        
         else if (this.tag == "RhombEnemy")
         {
             if (collision.tag == "RhombProjectile")

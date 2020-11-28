@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
+    public static bool laserUsed;
     public Transform hitPoint;
 
     private LineRenderer laser;
     private CapsuleCollider2D capsuleCollider;
-  
+     
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class Laser : MonoBehaviour
         laser.enabled = false;
         laser.useWorldSpace = true;
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        laserUsed = false;
 
     }
 
@@ -28,7 +29,7 @@ public class Laser : MonoBehaviour
         laser.SetPosition(0, this.transform.position);
         laser.SetPosition(1, hitPoint.transform.position);
        // Debug.Log(capsuleCollider.direction);
-        if (Input.GetKey(KeyCode.R))
+        if (laserUsed)
         {
             StartCoroutine(LaserShot());
         }
@@ -52,7 +53,7 @@ public class Laser : MonoBehaviour
       
 
         laser.enabled = true;
-        
+        yield return new WaitForSeconds(1f);
 
         /*foreach (RaycastHit2D hit in hits)
             if (hit && hit.transform.tag != "Player")
@@ -60,12 +61,12 @@ public class Laser : MonoBehaviour
                 Destroy(hit.collider.gameObject);
             }*/
 
-        yield return new WaitForSeconds(2f);
+        
         capsuleCollider.enabled = false;
         laser.enabled = false;
         //hits = Physics2D.RaycastAll(this.transform.position, transform.up);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         capsuleCollider.enabled = true;
         laser.enabled = true;
        
@@ -76,9 +77,10 @@ public class Laser : MonoBehaviour
                  Destroy(hit.collider.gameObject);
              }*/
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         capsuleCollider.enabled = false;
         laser.enabled = false;
+        laserUsed = false;
         
 
     }

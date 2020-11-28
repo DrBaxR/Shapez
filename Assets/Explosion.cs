@@ -13,7 +13,7 @@ public class Explosion : ActiveSkills
     {
         //boxCollider = GetComponent<BoxCollider2D>();
         circle = GetComponent<CircleCollider2D>();
-        this.isReady = false;
+        //this.isReady = false;
     }
 
     private void Update()

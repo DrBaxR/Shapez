@@ -40,7 +40,9 @@ public class MultiplyingEnemy : Enemies
         sr.material.color = Color.red;
         currentSprite = this.sr.sprite;
         canMove = true;
-        
+        var main = deathVFX.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.cyan;
+
     }
 
 

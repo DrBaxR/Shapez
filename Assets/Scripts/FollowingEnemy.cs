@@ -19,7 +19,9 @@ public class FollowingEnemy : Enemies
         sr.material.color = Color.blue;
         Initialization();
         canMove = true;
-       
+        var main = deathVFX.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.cyan;
+
     }
 
     void Update()

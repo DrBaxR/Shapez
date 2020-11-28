@@ -52,10 +52,10 @@ public class Shooting : MonoBehaviour
             Projectile proj = bullet.GetComponent<Projectile>();
             proj.SetDirection(direction);*/
         }
-        if (Input.GetKeyDown(KeyCode.Space) && skillManager.skills[0].isReady)
+        /*if (Input.GetKeyDown(KeyCode.Space) && skillManager.skills[0].isReady)
         {
           
-            Instantiate(expVFX, transform.position, Quaternion.identity);
+            
             skillManager.skills[0].isReady = false;
             skillManager.skills[0].currentCoolDown = 0;
            // nextExplosionCooldown = coolDown;
@@ -94,7 +94,9 @@ public class Shooting : MonoBehaviour
                  }*/
 
 
-            }
+           // }
+
+      
 
        /* if (Input.GetKeyDown(KeyCode.Space) && nextExplosionCooldown <= 0)
         {

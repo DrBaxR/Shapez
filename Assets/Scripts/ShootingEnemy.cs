@@ -32,7 +32,9 @@ public class ShootingEnemy : Enemies
 
         
         canMove = true;
-        
+        var main = deathVFX.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.cyan;
+
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class ShootingEnemy : Enemies
         Movement();
         Shooting();
         CheckForDeath(20f);
+        DontOverlap();
     }
 
     private void Movement()

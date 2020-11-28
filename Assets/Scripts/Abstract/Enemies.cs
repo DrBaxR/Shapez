@@ -69,6 +69,8 @@ public abstract class Enemies : MonoBehaviour
             LevelSystem.UpdateExperience(experience);
             audioManager.PlaySound("deathSound");
             Instantiate(deathVFX, this.transform.position, Quaternion.identity);
+            Player.streak++;
+            Debug.Log(Player.streak);
             Destroy(this.gameObject);
         }
     }

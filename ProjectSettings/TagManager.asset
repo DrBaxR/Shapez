@@ -26,6 +26,11 @@ TagManager:
   - ProjectilePowerup
   - En
   - Sentinel
+  - HealthPickup
+  - LaserPickup
+  - SpeedPickup
+  - DamagePickup
+  - RangePowerup
   layers:
   - Default
   - TransparentFX

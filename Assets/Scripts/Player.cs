@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public Transform explosion;
     public GameObject explVFX;
     public Image healthBar;
-
+    public static int streak;
     public SkillManager skillManager; 
     private float moveInputX;
     private float moveInputY;
@@ -26,9 +26,12 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     private GameManager gm;
 
+    private bool standstill;
     private bool pcMovement;
     private bool otherMovement;
     public bool isDamageable;
+
+    public GameObject expVFX;
     //private bool canDash;
 
     private int direction;
@@ -40,7 +43,8 @@ public class Player : MonoBehaviour
 
     private Weapon currentWeapon;
     private ChainLightning chainLightning;
-
+    private float timeNotMoved;
+    private bool takenDamage;
     [Header("Dashing")]
     public float timeBtwDashes;
     public float dashSpeed;
@@ -73,8 +77,12 @@ public class Player : MonoBehaviour
         currentWeapon = inventory[0];
         isDamageable = true;
         health = maxHealth;
+        standstill = true;
+        timeNotMoved = 0f;
         //canDash = false;
         // startTimeBtwDashes = timeBtwDashes;
+        streak = 0;
+        takenDamage = false;
     }
 
     private void Update()
@@ -90,9 +98,44 @@ public class Player : MonoBehaviour
         Explosion();
        // Invulnerability();
       //  Dash();
-        OnYandereSimCodeLMAO();
+     
       
         dashVFX.GetComponent<ParticleSystem>().textureSheetAnimation.SetSprite(0, sr.sprite);
+
+
+
+        
+        OnYandereSimCodeLMAO();
+
+        if(rb.velocity.magnitude==0)
+        {
+            timeNotMoved += Time.deltaTime;
+        }
+        if(rb.velocity.magnitude != 0 && (timeNotMoved<3f || timeNotMoved >= 3f))
+        {
+            standstill = true;
+            timeNotMoved = 0;
+        }
+        if(rb.velocity.magnitude==0 && timeNotMoved>=3f && standstill)
+        {
+            StartCoroutine(DamageOverTimeCoroutine());
+        }
+        else
+        {
+            StopCoroutine(DamageOverTimeCoroutine());
+        }
+        if(takenDamage == true && streak<3)
+        {
+            streak = 0;
+            Debug.Log(streak);
+            takenDamage = !takenDamage;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && streak >=3)
+        {
+            Instantiate(expVFX, transform.position, Quaternion.identity);
+            streak = 0;
+            Debug.Log(streak);
+        }
     }
 
     private void FixedUpdate()
@@ -110,10 +153,13 @@ public class Player : MonoBehaviour
         {
             DashingAbility();
         }
-        if(Input.GetKeyDown(KeyCode.F))
+        /*if(Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(chainLightning.ChainLightningSkill());
-        }
+        }*/
+     
+
+   
         // Debug.Log(rb.velocity.magnitude);
 
         /* if (Input.GetKey(KeyCode.D))
@@ -172,8 +218,11 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(isDamageable == true)
-        this.health -= damage;
+        if (isDamageable == true)
+        {
+            this.health -= damage;
+            takenDamage = true;
+        }
         
     }
 
@@ -293,6 +342,25 @@ public class Player : MonoBehaviour
             gm.UpdateHighScore();
             SceneManager.LoadScene("GameOver");
         }
+    }
+
+    public void DamageOverTime()
+    {
+       //StartCoroutine(DamageOverTimeCoroutine(10,5));
+    }
+
+    public  IEnumerator DamageOverTimeCoroutine()
+    {
+        standstill = false;
+       
+        while (!standstill)
+        {
+            TakeDamage(1);
+            
+            yield return new WaitForSeconds(1f);
+           
+        }
+       
     }
 
     /* private void Dash()

@@ -21,6 +21,7 @@ public class PickupSpawner : MonoBehaviour
         if (timeBtwSpawns <= 0)
         {
             spawnPoint = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+            
             Instantiate(powerUps[Random.Range(0,powerUps.Count)], spawnPoint, Quaternion.identity);
             timeBtwSpawns = startTimeBtwSpawns;
         }
