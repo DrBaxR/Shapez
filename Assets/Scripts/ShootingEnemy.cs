@@ -159,14 +159,17 @@ public class ShootingEnemy : Enemies
     {
         if (collision.CompareTag("ExplosionParticle"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.tag == "Laser")
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if(collision.tag == "Sentinel")
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.tag.Contains("Enemy"))
@@ -175,6 +178,7 @@ public class ShootingEnemy : Enemies
         }
         else if (collision.CompareTag("Player"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             player.TakeDamage(this.damage);
             Destroy(gameObject);
         }

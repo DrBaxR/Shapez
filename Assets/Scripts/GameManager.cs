@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private static float incrementCooldown = 15.0f;
     private static int scorelIncrement = 10;
     public static int scorel = 0;
+    public Image explosionStreak;
+
 
     private float nextIncrement;
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         nextIncrement = incrementCooldown;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        explosionStreak.enabled = false;
     }
 
     // Update is called once per frame
@@ -47,6 +50,14 @@ public class GameManager : MonoBehaviour
 
         // healthBar.fillAmount = player.GetHealthRatio();
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, player.GetHealthRatio(), 5f * Time.deltaTime);
+        if(Player.streak >=3)
+        {
+            explosionStreak.enabled = true;
+        }
+        else
+        {
+            explosionStreak.enabled = false;
+        }
     }
 
     private void UpdateScore()

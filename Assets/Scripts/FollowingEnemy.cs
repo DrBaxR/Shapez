@@ -19,8 +19,9 @@ public class FollowingEnemy : Enemies
         sr.material.color = Color.blue;
         Initialization();
         canMove = true;
-        var main = deathVFX.GetComponent<ParticleSystem>().main;
-        main.startColor = Color.cyan;
+        //var main = deathVFX.GetComponent<ParticleSystem>().main;
+        deathVFX.GetComponent<ParticleSystem>().startColor = Color.blue ;
+        // main.startColor = Color.blue ;
 
     }
 
@@ -40,10 +41,13 @@ public class FollowingEnemy : Enemies
                 
        if(collision.CompareTag("ExplosionParticle"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
+
         }
         else if (collision.tag == "Laser")
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
        else if (collision.tag.Contains("Enemy"))
@@ -52,10 +56,12 @@ public class FollowingEnemy : Enemies
         }
        else if(collision.CompareTag("Sentinel"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Player"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             player.TakeDamage(this.damage);
             Destroy(gameObject);
         }
@@ -63,6 +69,7 @@ public class FollowingEnemy : Enemies
         {
             if (collision.tag == "TriangleProjectile")
             {
+
                 this.TakeDamage(player.damage);
                 Destroy(collision.gameObject);
             }

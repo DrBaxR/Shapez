@@ -40,8 +40,9 @@ public class MultiplyingEnemy : Enemies
         sr.material.color = Color.red;
         currentSprite = this.sr.sprite;
         canMove = true;
-        var main = deathVFX.GetComponent<ParticleSystem>().main;
-        main.startColor = Color.cyan;
+        // var main = deathVFX.GetComponent<ParticleSystem>().main;
+        deathVFX.GetComponent<ParticleSystem>().startColor = Color.red;
+       // main.startColor = Color.red;
 
     }
 
@@ -113,10 +114,13 @@ public class MultiplyingEnemy : Enemies
 
         if (collision.CompareTag("ExplosionParticle"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
+
         }
         else if (collision.tag == "Laser")
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.tag.Contains("Enemy"))
@@ -125,10 +129,12 @@ public class MultiplyingEnemy : Enemies
         }
         else if (collision.CompareTag("Sentinel"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.CompareTag("Player"))
         {
+            Instantiate(deathVFX, this.transform.position, Quaternion.identity);
             player.TakeDamage(this.damage);
             Destroy(gameObject);
         }

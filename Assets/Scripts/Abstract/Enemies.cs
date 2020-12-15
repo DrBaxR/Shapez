@@ -88,30 +88,30 @@ public abstract class Enemies : MonoBehaviour
       {
           gameObject.tag = "SquareEnemy";
             deathVFX = vfxC.deathVFXs[randomIndex];
-            var main = deathVFX.GetComponent<ParticleSystem>().main;
-            main.startColor = this.GetComponent<SpriteRenderer>().material.color;
+          //  var main = deathVFX.GetComponent<ParticleSystem>().main;
+           // main.startColor = this.GetComponent<SpriteRenderer>().material.color;
            
         }
       else if (randomIndex == 1)
       {
           gameObject.tag = "CircleEnemy";
             deathVFX = vfxC.deathVFXs[randomIndex];
-            var main = deathVFX.GetComponent<ParticleSystem>().main;
-            main.startColor = this.GetComponent<SpriteRenderer>().material.color;
+            //var main = deathVFX.GetComponent<ParticleSystem>().main;
+            //main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }
       else if (randomIndex == 2)
       {
           gameObject.tag = "TriangleEnemy";
           deathVFX = vfxC.deathVFXs[randomIndex];
-            var main = deathVFX.GetComponent<ParticleSystem>().main;
-            main.startColor = this.GetComponent<SpriteRenderer>().material.color;
+           // var main = deathVFX.GetComponent<ParticleSystem>().main;
+            //main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }
       else if (randomIndex == 3)
       {
           gameObject.tag = "RhombEnemy";
             deathVFX = vfxC.deathVFXs[randomIndex];
-            var main = deathVFX.GetComponent<ParticleSystem>().main;
-            main.startColor = this.GetComponent<SpriteRenderer>().material.color;
+           // var main = deathVFX.GetComponent<ParticleSystem>().main;
+          //  main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }
 
       
