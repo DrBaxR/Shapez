@@ -15,7 +15,7 @@ public abstract class Enemies : MonoBehaviour
 
     protected SpriteRenderer sr;
     public EnemySpriteContainer esc;
-    public VFXContainer vfxC;
+    
 
     protected GameObject deathVFX;
 
@@ -84,10 +84,10 @@ public abstract class Enemies : MonoBehaviour
       sr.sprite = esc.enemySprites[randomIndex];
      
       
-      if (randomIndex == 0)
+     if (randomIndex == 0)
       {
           gameObject.tag = "SquareEnemy";
-            deathVFX = vfxC.deathVFXs[randomIndex];
+           // deathVFX = vfxC.deathVFXs[randomIndex];
           //  var main = deathVFX.GetComponent<ParticleSystem>().main;
            // main.startColor = this.GetComponent<SpriteRenderer>().material.color;
            
@@ -95,21 +95,21 @@ public abstract class Enemies : MonoBehaviour
       else if (randomIndex == 1)
       {
           gameObject.tag = "CircleEnemy";
-            deathVFX = vfxC.deathVFXs[randomIndex];
+           // deathVFX = vfxC.deathVFXs[randomIndex];
             //var main = deathVFX.GetComponent<ParticleSystem>().main;
             //main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }
       else if (randomIndex == 2)
       {
           gameObject.tag = "TriangleEnemy";
-          deathVFX = vfxC.deathVFXs[randomIndex];
+        //  deathVFX = vfxC.deathVFXs[randomIndex];
            // var main = deathVFX.GetComponent<ParticleSystem>().main;
             //main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }
       else if (randomIndex == 3)
       {
           gameObject.tag = "RhombEnemy";
-            deathVFX = vfxC.deathVFXs[randomIndex];
+           // deathVFX = vfxC.deathVFXs[randomIndex];
            // var main = deathVFX.GetComponent<ParticleSystem>().main;
           //  main.startColor = this.GetComponent<SpriteRenderer>().material.color;
         }

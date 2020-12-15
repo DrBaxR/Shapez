@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5705315226885825629
 Transform:
   m_ObjectHideFlags: 0
@@ -52,12 +52,12 @@ MonoBehaviour:
   scorePoints: 5
   speed: 5
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
-  vfxC: {fileID: 11400000, guid: bd4463b4074ee0543a81f53b6bc69e63, type: 2}
   canMove: 0
   followDistance: 7
   retreatDistance: 5
   shootCooldown: 3
   pc: {fileID: 11400000, guid: f7c3ff7625ab50f4fa929b033a183cde, type: 2}
+  vfxC: {fileID: 11400000, guid: 97795c0dfb6d0ac4f964b6c6dff55891, type: 2}
 --- !u!212 &5705315226885825630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72,6 +72,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -178,6 +180,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     [Header("Setup")] //atribute legate setup
-    public EnemyContainer enemies = null;
+    public List<Enemies> enemies = null;
     public float distanceX = 10.0f;
     public float distanceY = 6.0f;
     public int numSpawnPointsX = 9; //numarul de spawn point-uri pe x
@@ -136,14 +136,17 @@ public class WaveSpawner : MonoBehaviour
                 {
                     i++;
                     used[index] = true;
-                    int e = Random.Range(0, enemies.enemies.Capacity); //select the enemy to spawn
-                    if(spawnPoints[index].position == player.position)
+                    //int e = Random.Range(0, enemies.enemies.Capacity); //select the enemy to spawn
+                    int e = Random.Range(0, enemies.Count);
+                    if(spawnPoints[index].position != player.position)
                     {
-                        i--;
-                        break;  
+                        // i--;
+                        // break;
+                        Instantiate(enemies[e], spawnPoints[index].position, Quaternion.identity);
+                        numberOfEnemiesRemaining--;
                     }
-                    Instantiate(enemies.enemies[e], spawnPoints[index].position, Quaternion.identity);
-                    numberOfEnemiesRemaining--;
+                    //Instantiate(enemies.enemies[e], spawnPoints[index].position, Quaternion.identity);
+                   
 
                 }
             }

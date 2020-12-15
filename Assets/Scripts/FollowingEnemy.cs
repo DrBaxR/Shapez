@@ -6,8 +6,9 @@ public class FollowingEnemy : Enemies
 {
     private Transform target;
     private Player player;
-   // public EnemySpriteContainer esc;
-  //  private SpriteRenderer sr;
+    public VFXContainer vfxC;
+    // public EnemySpriteContainer esc;
+    //  private SpriteRenderer sr;
 
     private void Start()
     {
@@ -18,9 +19,25 @@ public class FollowingEnemy : Enemies
         sr = GetComponent<SpriteRenderer>();
         sr.material.color = Color.blue;
         Initialization();
+        if(gameObject.tag == "SquareEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[0];
+        }
+        if (gameObject.tag == "CircleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[1];
+        }
+        if (gameObject.tag == "TriangleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[2];
+        }
+        if (gameObject.tag == "RhombEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[3];
+        }
         canMove = true;
         //var main = deathVFX.GetComponent<ParticleSystem>().main;
-        deathVFX.GetComponent<ParticleSystem>().startColor = Color.blue ;
+       // deathVFX.GetComponent<ParticleSystem>().startColor = Color.blue ;
         // main.startColor = Color.blue ;
 
     }

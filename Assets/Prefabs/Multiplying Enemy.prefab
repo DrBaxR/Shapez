@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4378231437288882012
 Transform:
   m_ObjectHideFlags: 0
@@ -145,14 +145,15 @@ MonoBehaviour:
   scorePoints: 5
   speed: 1
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
-  vfxC: {fileID: 11400000, guid: bd4463b4074ee0543a81f53b6bc69e63, type: 2}
+  canMove: 0
   spawnPoints:
   - {fileID: 1783249584}
   - {fileID: 1218084778}
   - {fileID: 507143359}
-  timeBtwSpawns: 20
+  timeBtwSpawns: 5
   enemyPrefab: {fileID: 6915160643491604280}
   numberOfClonedTimes: 2
+  vfxC: {fileID: 11400000, guid: 17e5b0cad02cab74dad47e20be63d3f9, type: 2}
 --- !u!212 &6848134609373768243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,6 +168,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

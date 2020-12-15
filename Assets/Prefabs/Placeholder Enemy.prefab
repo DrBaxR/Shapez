@@ -48,6 +48,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,6 +103,7 @@ MonoBehaviour:
   scorePoints: 5
   speed: 3
   esc: {fileID: 11400000, guid: 03be78afd225abf4b81d2ed8e530bf98, type: 2}
+  canMove: 0
   vfxC: {fileID: 11400000, guid: bd4463b4074ee0543a81f53b6bc69e63, type: 2}
 --- !u!61 &-7889371636369634481
 BoxCollider2D:

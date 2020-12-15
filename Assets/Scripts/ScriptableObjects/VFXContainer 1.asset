@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d01cb83b253fd54fb73d7e52f5e929c, type: 3}
+  m_Name: VFXContainer 1
+  m_EditorClassIdentifier: 
+  deathVFXs:
+  - {fileID: 2775556417291100520, guid: a589d395db20b8a4ba82a9af04223589, type: 3}
+  - {fileID: 7745164209886547618, guid: f25488c2ca3b47145affa149a11381a8, type: 3}
+  - {fileID: 2371968587645362028, guid: 42cd81eada54f1242991fa4bd18af31f, type: 3}
+  - {fileID: 5496882960899112753, guid: a319188d2d85a5f48b80c684af4cb2f0, type: 3}

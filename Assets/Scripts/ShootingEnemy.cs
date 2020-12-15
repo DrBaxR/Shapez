@@ -17,6 +17,8 @@ public class ShootingEnemy : Enemies
     private GameObject projectile;
     private int nOfCorners;
 
+    public VFXContainer vfxC;
+
     void Start()
     {
         sr= GetComponent<SpriteRenderer>();
@@ -30,10 +32,26 @@ public class ShootingEnemy : Enemies
         
         sr.material.color = Color.magenta;
 
-        
+        if (gameObject.tag == "SquareEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[0];
+        }
+        if (gameObject.tag == "CircleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[1];
+        }
+        if (gameObject.tag == "TriangleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[2];
+        }
+        if (gameObject.tag == "RhombEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[3];
+        }
         canMove = true;
-        var main = deathVFX.GetComponent<ParticleSystem>().main;
-        main.startColor = Color.cyan;
+        /*var main = deathVFX.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.cyan;*/
+        //deathVFX.GetComponent<ParticleSystem>().startColor = Color.magenta;
 
     }
 

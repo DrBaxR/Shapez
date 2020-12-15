@@ -8,6 +8,7 @@ public class TeleportingTriangleEnemy : Enemies
 
     public float explosionRadius;
     public Transform explosionCenter;
+    public VFXContainer vfxC;
     //  public EnemySpriteContainer esc;
 
     public Player player;
@@ -31,8 +32,25 @@ public class TeleportingTriangleEnemy : Enemies
         sr = GetComponent<SpriteRenderer>();
         sr.material.color = Color.cyan;
         Initialization();
-        var main = deathVFX.GetComponent<ParticleSystem>().main;
-        main.startColor = Color.cyan;
+        if (gameObject.tag == "SquareEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[0];
+        }
+        if (gameObject.tag == "CircleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[1];
+        }
+        if (gameObject.tag == "TriangleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[2];
+        }
+        if (gameObject.tag == "RhombEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[3];
+        }
+        //var main = deathVFX.GetComponent<ParticleSystem>().main;
+       // deathVFX.GetComponent<ParticleSystem>().startColor = Color.cyan;
+        // main.startColor = Color.cyan;
     }
 
     // Update is called once per frame

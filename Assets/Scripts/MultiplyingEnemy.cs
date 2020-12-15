@@ -10,7 +10,8 @@ public class MultiplyingEnemy : Enemies
     public float timeBtwSpawns;
     public GameObject enemyPrefab;
     public int numberOfClonedTimes;
-    
+    public VFXContainer  vfxC;
+
     private Player player;
    // private new AudioManager audioManager;
 
@@ -37,12 +38,28 @@ public class MultiplyingEnemy : Enemies
         sr = GetComponent<SpriteRenderer>();
         
         Initialization();
+        if (gameObject.tag == "SquareEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[0];
+        }
+        if (gameObject.tag == "CircleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[1];
+        }
+        if (gameObject.tag == "TriangleEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[2];
+        }
+        if (gameObject.tag == "RhombEnemy")
+        {
+            deathVFX = vfxC.deathVFXs[3];
+        }
         sr.material.color = Color.red;
         currentSprite = this.sr.sprite;
         canMove = true;
         // var main = deathVFX.GetComponent<ParticleSystem>().main;
-        deathVFX.GetComponent<ParticleSystem>().startColor = Color.red;
-       // main.startColor = Color.red;
+       // deathVFX.GetComponent<ParticleSystem>().startColor = Color.red;
+        //main.startColor = Color.red;
 
     }
 
